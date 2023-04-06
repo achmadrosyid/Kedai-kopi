@@ -37,13 +37,9 @@
     <!-- /.content -->
   </div>
 </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; <?= date('Y');?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div>
-</footer>
+
+@include('layouts.footer')
+
   <!-- /.content-wrapper -->
 <!-- jQuery -->
 <script src="{{asset('AdminLTE')}}/plugins/jquery/jquery.min.js"></script>
