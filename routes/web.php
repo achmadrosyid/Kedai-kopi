@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.master');
 });
-Route::get('/home', function () {
-    return view('home.index');
-});
-// Route::get('/', function () {
-//     return view('contoh.index');
-// });
+//Route::get('/home', function () {
+//    return view('home.index');
+//});
+Route::get('/home',[HomeController::class, 'index'])->name('home.index');

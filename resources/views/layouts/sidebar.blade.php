@@ -36,7 +36,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{route('home.index')}}" class="{{ request()->is('home') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
