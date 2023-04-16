@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.master');
 });
+Route::get('/home', function () {
+    return view('home.index');
+});
 // Route::get('/', function () {
 //     return view('contoh.index');
 // });
