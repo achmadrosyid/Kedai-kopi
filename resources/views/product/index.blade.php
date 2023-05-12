@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 
 <section class="buttom-header">
@@ -8,7 +8,7 @@
         </div>
   </div>
 </section>
-
+<br>
  <section class="content">
     <div class="container fluid">
       <div class="col-lg-12">
@@ -21,28 +21,28 @@
               <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
-                    <div class="dt-buttons btn-group flex-wrap">               
+                    <div class="dt-buttons btn-group flex-wrap">
                         <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button">
                           <span>Copy</span>
-                        </button> 
+                        </button>
                         <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button">
                             <span>CSV</span>
-                        </button> 
+                        </button>
                         <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button">
                             <span>Excel</span>
-                        </button> 
+                        </button>
                         <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button">
                             <span>PDF</span>
-                        </button> 
+                        </button>
                         <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button">
                             <span>Print</span>
-                        </button> 
+                        </button>
                       <div class="btn-group">
                           <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true">
                             <span>Column visibility</span>
                             <span class="dt-down-arrow"></span>
                           </button>
-                        </div> 
+                        </div>
                       </div>
                     </div>
                       <div class="col-sm-12 col-md-6">
