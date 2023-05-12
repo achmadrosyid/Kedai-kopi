@@ -46,7 +46,7 @@
           </li>
           <!-- Product -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="{{route('product.index')}}" class="{{ request()->is('product') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-weight-hanging"></i>
               <p>
                  Product
@@ -56,7 +56,7 @@
           </li>
           <!-- Category -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+          <a href="{{route('category.index')}}" class="{{ request()->is('category') ? 'nav-link active' : 'nav-link'}}">
               <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-shapes"></i>
               <p>
@@ -67,7 +67,7 @@
           </li>
           <!-- Customer Orders -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+          <a href="{{route('customer-order.index')}}" class="{{ request()->is('customer-order') ? 'nav-link active' : 'nav-link'}}">
               <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-comment-dots"></i>
               <p>
@@ -78,7 +78,7 @@
           </li>
           <!-- Sales Report -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+          <a href="{{route('sales-report.index')}}" class="{{ request()->is('sales-report') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-money-bill-wave-alt"></i>
               <p>
                 Sales Report
@@ -88,7 +88,7 @@
           </li>
           <!-- Cashier -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+          <a href="{{route('cashier.index')}}" class="{{ request()->is('cashier') ? 'nav-link active' : 'nav-link'}}">
                 <i class="nav-icon fas fa-edit"></i>
               <p>
                 Cashier

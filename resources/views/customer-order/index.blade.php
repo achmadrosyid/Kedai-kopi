@@ -1,4 +1,4 @@
 @extends('layouts.master')
 @section('content')
-    <p> ini category</p>
+    <p> ini customer order</p>
 @endsection

@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerOrderController;
+use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\CashierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +22,10 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('layouts.master');
 });
-//Route::get('/home', function () {
-//    return view('home.index');
-//});
+
 Route::get('/home',[HomeController::class, 'index'])->name('home.index');
+Route::get('/product',[ProductController::class, 'index'])->name('product.index');
+Route::get('/category',[CategoryController::class, 'index'])->name('category.index');
+Route::get('/customer-order',[CustomerOrderController::class, 'index'])->name('customer-order.index');
+Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
+Route::get('/cashier',[CashierController::class, 'index'])->name('cashier.index');
