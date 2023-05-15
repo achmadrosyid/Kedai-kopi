@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
+  @yield('header-include')
   @include('layouts.cssinclude')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -40,6 +41,6 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 @include('layouts.jsinclude')
-
+@yield('script')
 </body>
 </html>
