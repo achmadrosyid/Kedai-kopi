@@ -80,103 +80,173 @@
                           <thead>
                           <tr>
                             <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 10%">Image</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">Name Product</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 20%">Category</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Status</th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Harga</th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Action</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Category</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Status</th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Price</th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Action</th>
                         </tr>
                           </thead>
                         <tbody>
                           <tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
-                            <td>Nasigorang</td>
-                            <td>Food</td>
-                            <td>Ready</td>
-                            <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
                             </td>
-                          </tr><tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
                             </td>
-                          </tr><tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
-                            <td>Nasigorang</td>
-                            <td>Food</td>
-                            <td>Ready</td>
-                            <td>Price</td>
+                          </tr>
+                          <tr class="even">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
                             </td>
-                          </tr><tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
                             </td>
-                          </tr><tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
-                            <td>Nasigorang</td>
-                            <td>Food</td>
-                            <td>Ready</td>
-                            <td>Price</td>
+                          </tr>
+                          <tr class="odd">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
                             </td>
-                          </tr><tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
                             </td>
-                          </tr><tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
-                            <td>Nasigorang</td>
-                            <td>Food</td>
-                            <td>Ready</td>
-                            <td>Price</td>
+                          </tr>
+                          <tr class="even">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
                             </td>
-                          </tr><tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
                             </td>
-                          </tr><tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
-                            <td>Nasigorang</td>
-                            <td>Food</td>
-                            <td>Ready</td>
-                            <td>Price</td>
+                          </tr>
+                          <tr class="odd">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
                             </td>
-                          </tr><tr class="even">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
                             <td>
-                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
+                          </tr>
+                          <tr class="even">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
+                            </td>
+                            <td>Nasigorang</td>
+                            <td>Food</td>
+                            <td>Ready</td>
+                            <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
+                          </tr>
+                          <tr class="odd">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
+                            </td>
+                            <td>Nasigorang</td>
+                            <td>Food</td>
+                            <td>Ready</td>
+                            <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
+                          </tr>
+                          <tr class="even">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
+                            </td>
+                            <td>Nasigorang</td>
+                            <td>Food</td>
+                            <td>Ready</td>
+                            <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
+                          </tr>
+                          <tr class="odd">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
+                            </td>
+                            <td>Nasigorang</td>
+                            <td>Food</td>
+                            <td>Ready</td>
+                            <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
+                          </tr>
+                          <tr class="even">
+                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td>
+                              <figure class="figure">
+                                <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                              </figure>
+                            </td>
+                            <td>Nasigorang</td>
+                            <td>Food</td>
+                            <td>Ready</td>
+                            <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
                             </td>
                           </tr></tbody>
                 </table>
