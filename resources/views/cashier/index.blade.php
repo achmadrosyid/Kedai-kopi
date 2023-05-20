@@ -3,11 +3,11 @@
 <section class="buttom-header">
   <div class="container fluid">
     <div class="inner. col-lg-12">
-          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-toggle="modal" data-target="#modal-detail">Add Cashier</button>
+          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-toggle="modal" data-target="#modal-detail">New Cashier</button>
     </div>
   </div>
 </section>
-<div class="modal" id="modal-detail" tabindex="-1" role="dialog">
+<div class="modal fade" id="modal-detail" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -48,10 +48,11 @@
                           <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                               <thead>
                               <tr>
-                                  <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No</th>
+                                  <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
                                   <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">User Name</th> 
                                   <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Password</th>
                                   <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">No HP</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Action</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -60,18 +61,31 @@
                                     <td>Udin</td>
                                     <td>udin123</td>
                                     <td>0822xxxxx</td>
+                                    <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                    </td>
                                 </tr>
                                 <tr class="even">
                                     <td class="dtr-control sorting_1" tabindex="0">1</td>
                                     <td>Udin</td>
                                     <td>udin123</td>
                                     <td>0822xxxxx</td>
+                                    <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                    </td>
                                 </tr><tr class="odd">
                                     <td class="dtr-control sorting_1" tabindex="0">1</td>
                                     <td>Udin</td>
                                     <td>udin123</td>
-                                    <td>0822xxxxx</td>                            
+                                    <td>0822xxxxx</td>  
+                                    <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                    </td>                         
                                 </tr>
+                  
                               </tbody>
                           </table>
                         </div>

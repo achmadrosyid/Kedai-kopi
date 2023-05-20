@@ -6,7 +6,7 @@
 <section class="buttom-header">
   <div class="container fluid">
     <div class="inner. col-lg-12">
-          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal" onclick="create()">Add Category</button>
+          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal" onclick="create()">New Category</button>
     </div>
   </div>
 </section>
@@ -27,20 +27,30 @@
                               <thead>
                               <tr>
                                   <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Name Produk</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Category</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 10%">Action</th>
                               </tr>
                               </thead>
                               <tbody>
                               <tr class="odd">
                                   <td class="dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Food</td>
+                                  <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                   </td>
                               </tr>
                               <tr class="even">
                                   <td class="dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Drink</td>
+                                  <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                   </td>
                               </tr><tr class="odd">
                                   <td class="dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Snack</td>
+                                  <td>
+                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                                   </td>
                               </tr></tbody>
                           </table>
                         </div>

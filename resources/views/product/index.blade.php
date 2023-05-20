@@ -4,17 +4,64 @@
 <section class="buttom-header">
   <div class="container fluid">
         <div class="inner. col-lg-12">
-          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3">Add Produk</button>
+          <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3 " data-toggle="modal" data-target="#modal-create">New Product</button>
         </div>
   </div>
 </section>
+<div class="modal fade" id="modal-create" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Input Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+      <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="inputGroupFileAddon02" >Upload</span>
+              </div>
+            </div>
+        <label for="input-category">Category</label>
+        <div class="form-group">
+          <select class="custom-select" required>
+            <option value="">Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <div class="invalid-feedback"> Example invalid custom select feedback
+          </div>
+        </div>
+        <label for="input-product">Name Product</label>
+        <input type="product" class="form-control" id="input-product" placeholder="Input product">
+        <label for="input-description">Description</label>
+        <input type="description" class="form-control" id="input-description" placeholder="Input description">
+        <label for="input-status">Status</label>
+        <input type="status" class="form-control" id="input-status" placeholder="Input status">
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
  <section class="content">
     <div class="container fluid">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Produk </h3>
+            <h3 class="card-title">Product </h3>
           </div>
           <div class="card-body">
               <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -32,11 +79,12 @@
                   <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                           <thead>
                           <tr>
-                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Name Produk</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Category</th>
-                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Status</th>
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Harga</th>
+                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">Name Product</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 20%">Category</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Status</th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Harga</th>
+                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Action</th>
                         </tr>
                           </thead>
                         <tbody>
@@ -46,60 +94,90 @@
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="odd">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr><tr class="even">
                             <td class="dtr-control sorting_1" tabindex="0">1</td>
                             <td>Nasigorang</td>
                             <td>Food</td>
                             <td>Ready</td>
                             <td>Price</td>
+                            <td>
+                              <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
+                            </td>
                           </tr></tbody>
                 </table>
               </div>

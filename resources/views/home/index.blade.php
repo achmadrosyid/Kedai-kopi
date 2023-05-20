@@ -22,7 +22,7 @@
           <!-- ./col -->
           <div class="col-lg-6 col-9">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-primary">
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
