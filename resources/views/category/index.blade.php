@@ -1,8 +1,10 @@
 @extends('layouts.master')
 @section('include-header')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m9=" crossorigin="anonymous"></script>
 @endsection
 @section('content')
+
+<!-- tombol tambah kategori -->
 <section class="buttom-header">
   <div class="container fluid">
     <div class="inner. col-lg-12">
@@ -11,42 +13,43 @@
   </div>
 </section>
 
+<!-- tabel kategori -->
 <br>
  <section class="content">
     <div class="container fluid">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Category </h3>
           </div>
             <div class="card-body">
-                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
                     <div class="row">
                         <div class="col-sm-12">
                           <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                               <thead>
                               <tr>
-                                  <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Category</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 10%">Action</th>
+                                  <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Category</th>
+                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 10%">Action</th>
                               </tr>
                               </thead>
                               <tbody>
                               <tr class="odd">
-                                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Food</td>
                                   <td>
                                     <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
                                    </td>
                               </tr>
                               <tr class="even">
-                                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Drink</td>
                                   <td>
                                     <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
                                    </td>
                               </tr><tr class="odd">
-                                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                                   <td>Snack</td>
                                   <td>
                                     <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-9" data-toggle="modal" data-target="#modal-pay">Delete</button>
@@ -60,11 +63,13 @@
         </div>
     </div>
 </div>
+
+<!-- pop up kategori -->
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">Input Category</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -82,7 +87,10 @@
       </div>
     </div>
   </div>
+
+  
 </section>
+
 @endsection
 @section('script')
 <script src="{{asset('functionjs/category.js')}}"></script>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+<!-- tombol tambah produk -->
 <section class="buttom-header">
   <div class="container fluid">
         <div class="inner. col-lg-12">
@@ -8,6 +8,8 @@
         </div>
   </div>
 </section>
+
+<!-- pop up tambah produk -->
 <div class="modal fade" id="modal-create" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -17,7 +19,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
       <div class="modal-body">
       <div class="form-group">
             <div class="input-group mb-3">
@@ -56,6 +57,8 @@
   </div>
 </div>
 <br>
+
+<!-- tabel produk -->
  <section class="content">
     <div class="container fluid">
       <div class="col-lg-12">
@@ -66,10 +69,10 @@
           <div class="card-body">
               <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                   <div class="row">
-                      <div class="col-sm-12 col-md-6">
+                      <div class="col-sm-12">
                           <div id="example1_filter" class="dataTables_filter">
                                 <label> Search: 
-                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">
+                                    <input type="search" class="form-control form-control-md" placeholder="" aria-controls="example1">
                                 </label>
                                 </div>
                             </div>
@@ -79,7 +82,7 @@
                   <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                           <thead>
                           <tr>
-                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
+                            <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 10%">Image</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">Name Product</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Category</th>
@@ -90,7 +93,7 @@
                           </thead>
                         <tbody>
                           <tr class="odd">
-                            <td class="dtr-control sorting_1" tabindex="0">1</td>
+                            <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -106,7 +109,7 @@
                             </td>
                           </tr>
                           <tr class="even">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -122,7 +125,7 @@
                             </td>
                           </tr>
                           <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -138,7 +141,7 @@
                             </td>
                           </tr>
                           <tr class="even">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -154,7 +157,7 @@
                             </td>
                           </tr>
                           <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -170,7 +173,7 @@
                             </td>
                           </tr>
                           <tr class="even">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -186,7 +189,7 @@
                             </td>
                           </tr>
                           <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -202,7 +205,7 @@
                             </td>
                           </tr>
                           <tr class="even">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -218,7 +221,7 @@
                             </td>
                           </tr>
                           <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
@@ -234,7 +237,7 @@
                             </td>
                           </tr>
                           <tr class="even">
-                          <td class="dtr-control sorting_1" tabindex="0">1</td>
+                          <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                             <td>
                               <figure class="figure">
                                 <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">

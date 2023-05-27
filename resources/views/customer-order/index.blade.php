@@ -74,16 +74,16 @@
                 <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                 <thead>
                 <tr>
-                  <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 10%">No</th>
-                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">Name Customer</th>
-                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 20%">Table</th>
-                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Count</th>
-                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Payment</th>
+                  <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
+                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Name Customer</th>
+                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Table</th>
+                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 20%">Count</th>
+                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Payment</th>
               </tr>
                 </thead>
               <tbody>
                 <tr class="odd">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -91,7 +91,7 @@
                   <button type="button" class="extrasmall. btn-blok btn-primary btn-sm col-9" data-toggle="modal" data-target="#modal-pay">Pay</button>
                   </td>
                 </tr><tr class="even">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -100,7 +100,7 @@
                   </td>
                 </tr>
                 <tr class="odd">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -109,7 +109,7 @@
                   </td>
                 </tr>
                 <tr class="even">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -118,7 +118,7 @@
                   </td>
                 </tr>
                 <tr class="odd">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -127,7 +127,7 @@
                   </td>
                 </tr>
                 <tr class="even">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -136,7 +136,7 @@
                   </td>
                 </tr>
                 <tr class="odd">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -145,7 +145,7 @@
                   </td>
                 </tr>
                 <tr class="even">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -154,7 +154,7 @@
                   </td>
                 </tr>
                   <tr class="odd">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
@@ -163,7 +163,7 @@
                   </td>
                 </tr>
                 <tr class="even">
-                  <td class="dtr-control sorting_1" tabindex="0">1</td>
+                  <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
                   <td>Udin</td>
                   <td>4</td>
                   <td>50000</td>
