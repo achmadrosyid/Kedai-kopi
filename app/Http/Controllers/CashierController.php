@@ -37,5 +37,5 @@ class CashierController extends Controller
     public function store(Request $request)
     {
         # code...
-    } 
+    }
 }

@@ -1,4 +1,3 @@
-var baseurl = $('#url').val();
 var token = $('#token').val();
 $(document).ready(function () {
     getData();
