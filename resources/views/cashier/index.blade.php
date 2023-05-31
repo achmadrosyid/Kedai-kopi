@@ -1,4 +1,11 @@
 @extends('layouts.master')
+@section('header-include')
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m9=" crossorigin="anonymous"></script>--}}
+<input type="hidden" id="url">
+<input type="hidden" id="token" value="{{csrf_token()}}">
+@endsection
 @section('content')
 
 <!-- tombol tambah kasir -->
@@ -48,9 +55,9 @@
             <h3 class="card-title"> Cashier </h3>
           </div>
             <div class="card-body">
-                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    <div class="row">
-                        <div class="col-sm-12">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                        <div class="row">
+                            <div class="col-sm-12">
                           <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                               <thead>
                               <tr>
@@ -61,38 +68,6 @@
                                   <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Action</th>
                               </tr>
                               </thead>
-                              <tbody>
-                                <tr class="odd">
-                                    <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
-                                    <td>Udin</td>
-                                    <td>udin123</td>
-                                    <td>0822xxxxx</td>
-                                    <td>
-                                    <button type="button" class="extrasmall. center btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
-                                    <button type="button" class="extrasmall. center btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr class="even">
-                                    <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
-                                    <td>Udin</td>
-                                    <td>udin123</td>
-                                    <td>0822xxxxx</td>
-                                    <td>
-                                    <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
-                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
-                                    </td>
-                                </tr><tr class="odd">
-                                    <td class="text-center dtr-control sorting_1" tabindex="0">1</td>
-                                    <td>Udin</td>
-                                    <td>udin123</td>
-                                    <td>0822xxxxx</td>  
-                                    <td>
-                                    <button type="button" class="extrasmall. btn-blok btn-warning btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Edit</button> 
-                                    <button type="button" class="extrasmall. btn-blok btn-danger btn-xs col-4" data-toggle="modal" data-target="#modal-pay">Delete</button>
-                                    </td>                         
-                                </tr>
-                  
-                              </tbody>
                           </table>
                         </div>
                       </div>
@@ -102,4 +77,9 @@
     </div>
 </div>
 </section>
+@endsection
+@section('script')
+    <!-- DataTables  & Plugins -->
+    <script src="{{asset('AdminLTE/plugins/datatables/datatables.min.js')}}"></script>
+<script src="{{asset('functionjs/cashier.js')}}"></script>
 @endsection

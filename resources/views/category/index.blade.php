@@ -78,9 +78,5 @@
 @section('script')
     <!-- DataTables  & Plugins -->
     <script src="{{asset('AdminLTE/plugins/datatables/datatables.min.js')}}"></script>
-    <script>
-        var APP_URL = {!! json_encode(url('/')) !!}
-        $('#url').val(APP_URL);
-    </script>
 <script src="{{asset('functionjs/category.js')}}"></script>
 @endsection
