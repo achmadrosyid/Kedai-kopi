@@ -35,7 +35,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="{{route('home.index')}}" class="{{ request()->is('home') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-home"></i>
               <p>

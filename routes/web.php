@@ -25,7 +25,10 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class, 'index'])->name('home.index');
 Route::get('/product',[ProductController::class, 'index'])->name('product.index');
-Route::get('/category',[CategoryController::class, 'index'])->name('category.index');
+Route::group(['prefix'=>'category'],function (){
+    Route::get('/',[CategoryController::class, 'index'])->name('category.index');
+    Route::post('/store',[CategoryController::class,'store'])->name('category.store');
+});
 Route::get('/customer-order',[CustomerOrderController::class, 'index'])->name('customer-order.index');
 Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
 Route::get('/cashier',[CashierController::class, 'index'])->name('cashier.index');
