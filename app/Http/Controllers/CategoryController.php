@@ -34,7 +34,7 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'category' => ['required']
-        ],['category.required'=>'Mohon Inputkan Angka']);
+        ],['category.required'=>'Mohon Inputkan Category']);
 
         if ($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->all()]);
