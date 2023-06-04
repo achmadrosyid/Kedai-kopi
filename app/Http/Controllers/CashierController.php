@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cashier;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
 class CashierController extends Controller
 {
     public function index(Request $request) {
-        $data = Cashier::query()
+        $data = cashier::query()
         ->select('id','nama','password','nomer')
         ->get();
         if ($request->ajax()){
@@ -36,6 +37,16 @@ class CashierController extends Controller
 
     public function store(Request $request)
     {
-        # code...
+        dd($request);
+        $validator = Validator::make($request->all(),[
+            'username' => 'required', 'nomer' => 'numeric'
+
+        ],['username.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP']);
+        
+
+        if ($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+        //simpan data ke db
     }
 }

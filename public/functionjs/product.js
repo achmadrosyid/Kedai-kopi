@@ -1,6 +1,7 @@
 var baseurl = $('#url').val();
 var token = $('#token').val();
 $(document).ready(function () {
+    console.log('wowowo')
     getData();
 });
 
@@ -12,10 +13,10 @@ function getData() {
         ordering: true,
         bDestroy: true,
         ajax: {
-            url: '/category',
+            url: '/product',
             type: "GET",
             dataSrc: function (json) {
-                console.log('json', json)
+                console.log('masukk', json)
                 json.data.forEach(function (row, index) {
                     row.no = index + 1; // Menambahkan nomor data secara otomatis
                 });
@@ -24,8 +25,13 @@ function getData() {
         },
         columns: [
             {data: 'no'},
+            {data: 'img'},
             {data: 'nama'},
-            {data: 'action', width: "20%"}
+            {data: 'category'},
+            {data: 'description'},
+            {data: 'status'},
+            {data: 'price'},
+            {data: 'action', width: "15%"}
         ],
     });
 }
@@ -45,14 +51,24 @@ $('#simpan').click(function (e) {
     });
     e.preventDefault();
     let id = $('#id').val();
+    let img = $('#img').val();
+    let product = $('#product').val();
     let category = $('#category').val();
+    let description = $('#description').val();
+    let status = $('#status').val();
+    let price = $('#price').val();
 
     $.ajax({
-        url: '/category/store',
+        url: '/product/store',
         method: 'POST',
         data: {
             id: id,
+            img: img,
+            nama : product,
             category: category,
+            description: description,
+            status: status,
+            harga: price,
         },
         success: function (data) {
             if (data.errors) {
