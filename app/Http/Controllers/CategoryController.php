@@ -32,13 +32,22 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'category' => ['required']
-        ],['category.required'=>'Mohon Inputkan Category']);
+        ], ['category.required' => 'Mohon Inputkan Category']);
 
-        if ($validator->fails()){
-            return response()->json(['errors'=>$validator->errors()->all()]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
         }
         //simpan data ke db
+        $data = Category::query()
+            ->create([
+                'nama' => $request->category
+            ]);
+        if ($data) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        }
     }
 }

@@ -60,7 +60,14 @@ $('#simpan').click(function (e) {
                     toastr.error('<strong><li>' + value + '</li></strong>');
                 });
             } else {
-
+                if(data.success === 1){
+                    getData();
+                    $('#modalCreate').modal('hide');
+                    $('#form').trigger("reset");
+                    toastr.success('Data Berhasil Di Simpan');
+                }else{
+                    toastr.warning('Data Gagal Disimpan')
+                }
             }
         }
     })
