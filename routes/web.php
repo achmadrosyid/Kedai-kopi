@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
-Route::get('/home',[HomeController::class, 'index'])->name('home.index');
+// Route::get('/home',[HomeController::class, 'index'])->name('home.index');
 Route::get('/product',[ProductController::class, 'index'])->name('product.index');
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
@@ -35,3 +35,11 @@ Route::group(['prefix'=>'cashier'],function (){
     Route::get('/',[CashierController::class, 'index'])->name('cashier.index');
     Route::post('/store',[CashierController::class,'store'])->name('cashier.store');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
