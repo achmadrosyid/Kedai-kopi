@@ -15,6 +15,7 @@ function getData() {
             url: '/cashier',
             type: "GET",
             dataSrc: function (json) {
+                console.log('json', json)
                 json.data.forEach(function (row, index) {
                     row.no = index + 1; // Menambahkan nomor data secara otomatis
                 });
@@ -26,7 +27,7 @@ function getData() {
             {data: 'nama'},
             {data: 'password'},
             {data: 'nomer'},
-            {data: 'action', width: "15%"}
+            {data: 'action', width: "20%"}
         ],
     });
 }
@@ -55,7 +56,7 @@ $('#simpan').click(function (e) {
         method: 'POST',
         data: {
             id: id,
-            username: nama,
+            nama: nama,
             password: password,
             nomer: nomer,
         },
@@ -65,7 +66,14 @@ $('#simpan').click(function (e) {
                     toastr.error('<strong><li>' + value + '</li></strong>');
                 });
             } else {
-
+                if(data.success === 1){
+                    getData();
+                    $('#modalCreate').modal('hide');
+                    $('#form').trigger("reset");
+                    toastr.success('Data Berhasil Di Simpan');
+                }else{
+                    toastr.warning('Data Gagal Disimpan')
+                }
             }
         }
     })

@@ -12,6 +12,7 @@ class CashierController extends Controller
     public function index(Request $request) {
         $data = cashier::query()
         ->select('id','nama','password','nomer')
+        ->orderBy('id')
         ->get();
         if ($request->ajax()){
             return DataTables::of($data)
@@ -37,16 +38,27 @@ class CashierController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $validator = Validator::make($request->all(),[
-            'username' => 'required', 'nomer' => 'numeric'
+            'nama' => 'required', 'nomer' => 'numeric', 'password' => 'numeric'
 
-        ],['username.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP']);
+        ],['nama.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP'],['password.numeric'=>'Masukkan Kombinasi Angka Pada Password']);
         
 
         if ($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
         //simpan data ke db
+        $data = Cashier::query()
+            ->create([
+                'nama' => $request->nama,
+                'password' => $request->password,
+                'nomer' => $request->nomer
+
+            ]);
+        if ($data) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        }
     }
 }

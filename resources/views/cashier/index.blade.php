@@ -21,6 +21,40 @@
         </div>
     </section>
 
+    
+<!-- tabel kasir -->
+<br>
+ <section class="content">
+    <div class="container fluid">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"> Cashier </h3>
+          </div>
+            <div class="card-body">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                        <div class="row">
+                            <div class="col-sm-12">
+                          <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+                              <thead>
+                              <tr>
+                                  <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">User Name</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 20%">Password</th>
+                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">No HP</th>
+                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Action</th>
+                              </tr>
+                              </thead>
+                          </table>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 <!-- pop up tambah kasir -->
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
@@ -54,38 +88,7 @@
   </div>
 </div>
 
-<!-- tabel kasir -->
-<br>
- <section class="content">
-    <div class="container fluid">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"> Cashier </h3>
-          </div>
-            <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
-                        <div class="row">
-                            <div class="col-sm-12">
-                          <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
-                              <thead>
-                              <tr>
-                                  <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 20%">User Name</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 20%">Password</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">No HP</th>
-                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Action</th>
-                              </tr>
-                              </thead>
-                          </table>
-                        </div>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
+
 @endsection
 @section('script')
     <!-- Toastr -->

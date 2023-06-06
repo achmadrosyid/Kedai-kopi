@@ -36,10 +36,10 @@ Route::group(['prefix'=>'cashier'],function (){
     Route::post('/store',[CashierController::class,'store'])->name('cashier.store');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
