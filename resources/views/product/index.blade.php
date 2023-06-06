@@ -41,11 +41,11 @@
                         <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text" id="inputGroupFileAddon02" class="btn-primary">Upload</span>
+                        <span class="input-group-text" id="img" class="btn-primary">Upload</span>
                       </div>
                     </div>
                 <label for="input-category">Category</label>
-                <div class="form-group">
+                <div class="form-group" id="id_category">
                   <select class="custom-select" required>
                     <option value="">Open this select menu</option>
                     <option value="1">One</option>
@@ -56,17 +56,19 @@
                   </div>
                 </div>
         <label for="input-product">Name Product</label>
-        <input type="product" class="form-control" id="product" placeholder="Input product">
+        <input type="product" class="form-control" id="nama" placeholder="Input product">
         <label for="input-description">Description</label>
         <input type="description" class="form-control" id="description" placeholder="Input description">
         <label for="input-status">Status</label>
-        <input type="status" class="form-control" id="input-status" placeholder="Input status">
+        <input type="status" class="form-control" id="status" placeholder="Input status">
+        <label for="input-harga">Harga</label>
+        <input type="harga" class="form-control" id="harga" placeholder="Input harga">
       </div>
       </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="simpan" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -82,10 +84,10 @@
             <h3 class="card-title">Product </h3>
           </div>
           <div class="card-body">
-            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+          <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
               <div class="row">
                 <div class="col-sm-12">
-                  <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+                  <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                     <thead>
                           <tr>
                             <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>

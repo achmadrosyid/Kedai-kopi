@@ -1,7 +1,6 @@
 var baseurl = $('#url').val();
 var token = $('#token').val();
 $(document).ready(function () {
-    console.log('wowowo')
     getData();
 });
 
@@ -25,12 +24,12 @@ function getData() {
         },
         columns: [
             {data: 'no'},
+            {data: 'id_category'},
             {data: 'img'},
             {data: 'nama'},
-            {data: 'category'},
             {data: 'description'},
             {data: 'status'},
-            {data: 'price'},
+            {data: 'harga'},
             {data: 'action', width: "15%"}
         ],
     });
@@ -52,23 +51,23 @@ $('#simpan').click(function (e) {
     e.preventDefault();
     let id = $('#id').val();
     let img = $('#img').val();
-    let product = $('#product').val();
-    let category = $('#category').val();
+    let id_category = $('#id_category').val();
+    let nama = $('#nama').val();
     let description = $('#description').val();
     let status = $('#status').val();
-    let price = $('#price').val();
+    let harga = $('#harga').val();
 
     $.ajax({
         url: '/product/store',
         method: 'POST',
         data: {
             id: id,
-            img: img,
-            nama : product,
-            category: category,
+            id_category: id_category,
+            img : img,
+            nama: nama,
             description: description,
             status: status,
-            harga: price,
+            harga: harga,
         },
         success: function (data) {
             if (data.errors) {
@@ -76,6 +75,14 @@ $('#simpan').click(function (e) {
                     toastr.error('<strong><li>' + value + '</li></strong>');
                 });
             } else {
+                if(data.success === 1){
+                    getData();
+                    $('#modalCreate').modal('hide');
+                    $('#form').trigger("reset");
+                    toastr.success('Data Berhasil Di Simpan');
+                }else{
+                    toastr.warning('Data Gagal Disimpan')
+                }
 
             }
         }

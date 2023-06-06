@@ -24,7 +24,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home',[HomeController::class, 'index'])->name('home.index');
-Route::get('/product',[ProductController::class, 'index'])->name('product.index');
+Route::group(['prefix'=>'product'],function (){
+    Route::get('/',[ProductController::class, 'index'])->name('product.index');
+    Route::post('/store',[ProductController::class,'store'])->name('product.store');
+});
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
     Route::post('/store',[CategoryController::class,'store'])->name('category.store');

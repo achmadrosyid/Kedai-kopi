@@ -13,6 +13,7 @@ class CategoryController extends Controller
     {
         $data = Category::query()
             ->select('id', 'nama')
+            ->orderBy('id')
             ->get();
         if ($request->ajax()) {
             return DataTables::of($data)

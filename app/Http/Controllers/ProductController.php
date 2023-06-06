@@ -9,9 +9,11 @@ use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
-    public function index(Request $request) {
-        $data = product::query()
-        ->select('id','id_category','img','nama', 'description','status','harga')
+    public function index(Request $request) 
+    {
+        $data = Product::query()
+        ->select('id','id_category','img','nama','description','status','harga')
+        ->orderBy('id')
         ->get();
         // var_dump($data);
         if ($request->ajax()){
@@ -39,7 +41,7 @@ class ProductController extends Controller
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Edit</a>
                     <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delele" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
                 })
-                ->rawColumns(['nama','category','nomer','action'])
+                ->rawColumns(['id_category','img','nama','description','status','harga','action'])
                 ->make(true);
         }
         return view('product.index');
@@ -49,12 +51,27 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'nama' => 'required', 'harga' => 'numeric'
-        ],['nama.required'=>'Mohon Inputkan Nama Product',['harga.numeric'=>'Mohon Inputkan Nomer Harga']]);
+        ],['nama.required'=>'Mohon Masukkan Nama Produk',['harga.numeric'=>'Mohon Masukkan Harga']]);
         
 
         if ($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
         //simpan data ke db
+        $data = Product::query()
+            ->create([
+                'id_category' => 321,
+                'img' => 123,
+                'nama' => $request->nama,
+                'description' => $request->description,
+                'status' => $request->status,
+                'harga' => $request->harga
+            ]);
+            
+        if ($data) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        }
     }
 }
