@@ -7,6 +7,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\SalesReportController;
 use App\Http\Controllers\CashierController;
+use App\Http\Controllers\KedaiKopiSuperController;
+use App\Http\Controllers\CategoryOrderController;
+use App\Http\Controllers\PopularController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +26,17 @@ use App\Http\Controllers\CashierController;
 Route::get('/', function () {
     return view('layouts.master');
 });
+Route::get('/kedai-kopi-super',[KedaiKopiSuperController::class, 'index'])->name('kedai-kopi-super.index');
+Route::get('/category-order',[CategoryOrderController::class, 'index'])->name('category-order.index');
+Route::get('/popular',[PopularController::class, 'index'])->name('popular.index');
+Route::get('/order',[OrderController::class, 'index'])->name('order.index');
 
 Route::get('/home',[HomeController::class, 'index'])->name('home.index');
-Route::get('/product',[ProductController::class, 'index'])->name('product.index');
+Route::group(['prefix'=>'product'],function (){
+    Route::get('/',[ProductController::class, 'index'])->name('product.index');
+    Route::post('/store',[ProductController::class,'store'])->name('product.store');
+    Route::get('/getCategory',[ProductController::class, 'getCategory'])->name('product.getCategory');
+});
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
     Route::post('/store',[CategoryController::class,'store'])->name('category.store');
@@ -40,6 +52,6 @@ Route::group(['prefix'=>'cashier'],function (){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
@@ -60,7 +61,7 @@ class ProductController extends Controller
         //simpan data ke db
         $data = Product::query()
             ->create([
-                'id_category' => 321,
+                'id_category' => 1,
                 'img' => 123,
                 'nama' => $request->nama,
                 'description' => $request->description,
@@ -73,5 +74,12 @@ class ProductController extends Controller
         } else {
             return response()->json(['success' => 0]);
         }
+    }
+    public function getCategory()
+    {
+        $data = Category::query()
+        ->select('id','nama')
+        ->get();
+        return response()->json($data);
     }
 }

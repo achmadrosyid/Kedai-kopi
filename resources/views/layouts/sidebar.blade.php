@@ -8,29 +8,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{asset('AdminLTE')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Admin</a>
-        </div>
-      </div> -->
-
-      <!-- SidebarSearch Form -->
-      <!-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -40,7 +17,7 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
-                <!-- <i class="right fas fa-angle-left"></i> -->
+                
               </p>
             </a>
           </li>
@@ -50,29 +27,24 @@
               <i class="nav-icon fas fa-weight-hanging"></i>
               <p>
                  Product
-                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
           <!-- Category -->
           <li class="nav-item">
           <a href="{{route('category.index')}}" class="{{ request()->is('category') ? 'nav-link active' : 'nav-link'}}">
-              <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-shapes"></i>
               <p>
                  Category
-                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
           <!-- Customer Orders -->
           <li class="nav-item">
           <a href="{{route('customer-order.index')}}" class="{{ request()->is('customer-order') ? 'nav-link active' : 'nav-link'}}">
-              <!-- <i class="nav-icon fas fa-th"></i> -->
               <i class="nav-icon fas fa-comment-dots"></i>
               <p>
                 Customer Orders
-                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
@@ -82,7 +54,6 @@
               <i class="nav-icon fas fa-money-bill-wave-alt"></i>
               <p>
                 Sales Report
-                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
@@ -92,13 +63,47 @@
                 <i class="nav-icon fas fa-edit"></i>
               <p>
                 Cashier
-                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <!-- kedai-kopi-super -->
+          <li class="nav-item">
+          <a href="{{route('kedai-kopi-super.index')}}" class="{{ request()->is('kedai-kopi-super') ? 'nav-link active' : 'nav-link'}}">
+                <i class="nav-icon fas fa-home"></i>
+              <p>
+                Kedai Kopi Super
+              </p>
+            </a>
+          </li>
+          <!-- Kategory Order -->
+          <li class="nav-item">
+          <a href="{{route('category-order.index')}}" class="{{ request()->is('category-order') ? 'nav-link active' : 'nav-link'}}">
+              <i class="nav-icon fas fa-shapes"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+          <!-- popular -->
+          <li class="nav-item">
+          <a href="{{route('popular.index')}}" class="{{ request()->is('popular') ? 'nav-link active' : 'nav-link'}}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Popular
+              </p>
+            </a>
+          </li>
+          <!-- Order -->
+          <li class="nav-item">
+          <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
+            <i class="nav-icon fas fa-comment-dots"></i>
+              <p>
+                Order
               </p>
             </a>
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
