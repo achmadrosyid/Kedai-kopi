@@ -38,7 +38,28 @@ function getData() {
 // add modal
 function create() {
     $('#form').trigger("reset");
+    getCategory();
     $('#modalCreate').modal('show');
+}
+
+// get category
+function getCategory() {
+    alert('test');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    
+    $.ajax({
+        url: '/product/getCategory',
+        method: 'GET', 
+        success: function (data) {
+            consol.log (data);
+        }
+    });
+    
 }
 
 //tombol simpan di klik
