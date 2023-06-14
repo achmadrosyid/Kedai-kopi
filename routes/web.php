@@ -9,7 +9,6 @@ use App\Http\Controllers\SalesReportController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\KedaiKopiSuperController;
 use App\Http\Controllers\CategoryOrderController;
-use App\Http\Controllers\PopularController;
 use App\Http\Controllers\OrderController;
 
 /*
@@ -28,7 +27,6 @@ Route::get('/', function () {
 });
 Route::get('/kedai-kopi-super',[KedaiKopiSuperController::class, 'index'])->name('kedai-kopi-super.index');
 Route::get('/category-order',[CategoryOrderController::class, 'index'])->name('category-order.index');
-Route::get('/popular',[PopularController::class, 'index'])->name('popular.index');
 Route::get('/order',[OrderController::class, 'index'])->name('order.index');
 
 Route::get('/home',[HomeController::class, 'index'])->name('home.index');

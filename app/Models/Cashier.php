@@ -11,6 +11,7 @@ class Cashier extends Model
     protected $table = 'cashier';
     protected $fillable = [
         'nama',
+        'email',
         'password',
         'nomer',
     ];

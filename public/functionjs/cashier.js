@@ -25,6 +25,7 @@ function getData() {
         columns: [
             {data: 'no'},
             {data: 'nama'},
+            {data: 'email'},
             {data: 'password'},
             {data: 'nomer'},
             {data: 'action', width: "20%"}
@@ -48,6 +49,7 @@ $('#simpan').click(function (e) {
     e.preventDefault();
     let id = $('#id').val();
     let nama = $('#nama').val();
+    let email = $('#email').val();
     let password = $('#password').val();
     let nomer = $('#nomer').val();
 
@@ -57,6 +59,7 @@ $('#simpan').click(function (e) {
         data: {
             id: id,
             nama: nama,
+            email: email,
             password: password,
             nomer: nomer,
         },

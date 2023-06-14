@@ -11,13 +11,16 @@ class CashierController extends Controller
 {
     public function index(Request $request) {
         $data = cashier::query()
-        ->select('id','nama','password','nomer')
+        ->select('id','nama','email','password','nomer')
         ->orderBy('id')
         ->get();
         if ($request->ajax()){
             return DataTables::of($data)
                 ->addColumn('nama',function ($row){
                     return $row->nama;
+                })
+                ->addColumn('email',function ($row){
+                    return $row->email;
                 })
                 ->addColumn('password',function ($row){
                     return $row->password;
@@ -30,7 +33,7 @@ class CashierController extends Controller
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Edit</a>
                     <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delele" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
                 })
-                ->rawColumns(['nama','password','nomer','action'])
+                ->rawColumns(['nama','email','password','nomer','action'])
                 ->make(true);
         }
         return view('cashier.index');
@@ -51,6 +54,7 @@ class CashierController extends Controller
         $data = Cashier::query()
             ->create([
                 'nama' => $request->nama,
+                'email' => $request->email,
                 'password' => $request->password,
                 'nomer' => $request->nomer
 

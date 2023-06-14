@@ -16,8 +16,9 @@ class CreateCashiersTable extends Migration
         Schema::create('cashier', function (Blueprint $table) {
             $table->id();
             $table->string ('nama');
+            $table->string ('email');
             $table->integer('password');
-            $table->integer('nomer');
+            $table->string('nomer');
             $table->timestamps();
         });
     }

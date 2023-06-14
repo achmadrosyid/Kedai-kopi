@@ -80,19 +80,25 @@
           <a href="{{route('category-order.index')}}" class="{{ request()->is('category-order') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-shapes"></i>
               <p>
-                Category
+                Category <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="./index2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                    <p>Food</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./index3.html" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                   <p>Drink</p>
+                </a>
+                  </li>
+            </ul>
           </li>
-          <!-- popular -->
-          <li class="nav-item">
-          <a href="{{route('popular.index')}}" class="{{ request()->is('popular') ? 'nav-link active' : 'nav-link'}}">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Popular
-              </p>
-            </a>
-          </li>
+          
           <!-- Order -->
           <li class="nav-item">
           <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
