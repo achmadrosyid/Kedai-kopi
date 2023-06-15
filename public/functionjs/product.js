@@ -24,13 +24,13 @@ function getData() {
         },
         columns: [
             {data: 'no'},
-            {data: 'id_category'},
             {data: 'img'},
+            {data: 'id_category'},
             {data: 'nama'},
             {data: 'description'},
             {data: 'status'},
             {data: 'harga'},
-            {data: 'action', width: "15%"}
+            {data: 'action', width: "20%"}
         ],
     });
 }
@@ -44,7 +44,6 @@ function create() {
 
 // get category
 function getCategory() {
-    alert('test');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -72,19 +71,19 @@ $('#simpan').click(function (e) {
     e.preventDefault();
     let id = $('#id').val();
     let img = $('#img').val();
-    let id_category = $('#id_category').val();
+    let id_category = $('#tipe_category').val();
     let nama = $('#nama').val();
     let description = $('#description').val();
     let status = $('#status').val();
     let harga = $('#harga').val();
-
+    
     $.ajax({
         url: '/product/store',
         method: 'POST',
         data: {
             id: id,
-            id_category: id_category,
             img : img,
+            id_category: id_category,
             nama: nama,
             description: description,
             status: status,

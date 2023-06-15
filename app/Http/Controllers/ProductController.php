@@ -16,14 +16,13 @@ class ProductController extends Controller
         ->select('id','id_category','img','nama','description','status','harga')
         ->orderBy('id')
         ->get();
-        // var_dump($data);
         if ($request->ajax()){
             return DataTables::of($data)
-                ->addColumn('id_category',function ($row){
-                    return $row->id_category;
-                })
                 ->addColumn('img',function ($row){
                     return $row->img;
+                })
+                ->addColumn('id_category',function ($row){
+                    return $row->id_category;
                 })
                 ->addColumn('nama',function ($row){
                     return $row->nama;
@@ -45,7 +44,11 @@ class ProductController extends Controller
                 ->rawColumns(['id_category','img','nama','description','status','harga','action'])
                 ->make(true);
         }
-        return view('product.index');
+        
+        $category = Category::query()
+        ->select('id','nama')
+        ->get();
+        return view('product.index',compact('category'));
     }
 
     public function store(Request $request)
@@ -61,8 +64,8 @@ class ProductController extends Controller
         //simpan data ke db
         $data = Product::query()
             ->create([
-                'id_category' => 1,
                 'img' => 123,
+                'id_category' => $request->id_category,
                 'nama' => $request->nama,
                 'description' => $request->description,
                 'status' => $request->status,
@@ -74,12 +77,5 @@ class ProductController extends Controller
         } else {
             return response()->json(['success' => 0]);
         }
-    }
-    public function getCategory()
-    {
-        $data = Category::query()
-        ->select('id','nama')
-        ->get();
-        return response()->json($data);
     }
 }
