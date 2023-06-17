@@ -64,8 +64,35 @@
             </div>
         </div>
 
-        <!-- pop up kategori -->
+        <!-- pop up tambah kategori -->
         <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Input Category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" name="form">
+                            <input type="hidden" id="id">
+                            <div class="form-group">
+                                <label for="input-category">Category</label>
+                                <input type="category" class="form-control" id="category" placeholder="Input Category">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="simpan" class="btn btn-primary">Save Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- pop up edit kategori -->
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">

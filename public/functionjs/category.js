@@ -72,3 +72,7 @@ $('#simpan').click(function (e) {
         }
     })
 })
+
+function Edit() {
+    $('#modalEdit').modal('show');
+}
