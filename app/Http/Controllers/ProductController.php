@@ -10,19 +10,20 @@ use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
-    public function index(Request $request) 
+    public function index(Request $request)
     {
         $data = Product::query()
-        ->select('id','id_category','img','nama','description','status','harga')
-        ->orderBy('id')
+        ->select('product.id','id_category','img','product.nama','description','status','harga','c.nama as category')
+        ->leftJoin('category as c','c.id','product.id_category')
+        ->orderBy('product.id')
         ->get();
         if ($request->ajax()){
             return DataTables::of($data)
                 ->addColumn('img',function ($row){
                     return $row->img;
                 })
-                ->addColumn('id_category',function ($row){
-                    return $row->id_category;
+                ->addColumn('category',function ($row){
+                    return $row->category;
                 })
                 ->addColumn('nama',function ($row){
                     return $row->nama;
@@ -41,10 +42,10 @@ class ProductController extends Controller
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Edit</a>
                     <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delele" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
                 })
-                ->rawColumns(['id_category','img','nama','description','status','harga','action'])
+                ->rawColumns(['img','category','nama','description','status','harga','action'])
                 ->make(true);
         }
-        
+
         $category = Category::query()
         ->select('id','nama')
         ->get();
@@ -56,7 +57,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(),[
             'nama' => 'required', 'harga' => 'numeric'
         ],['nama.required'=>'Mohon Masukkan Nama Produk',['harga.numeric'=>'Mohon Masukkan Harga']]);
-        
+
 
         if ($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->all()]);
@@ -71,7 +72,7 @@ class ProductController extends Controller
                 'status' => $request->status,
                 'harga' => $request->harga
             ]);
-            
+
         if ($data) {
             return response()->json(['success' => 1]);
         } else {

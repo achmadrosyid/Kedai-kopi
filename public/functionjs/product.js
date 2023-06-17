@@ -25,7 +25,7 @@ function getData() {
         columns: [
             {data: 'no'},
             {data: 'img'},
-            {data: 'id_category'},
+            {data: 'category'},
             {data: 'nama'},
             {data: 'description'},
             {data: 'status'},
@@ -50,15 +50,15 @@ function getCategory() {
         }
     });
 
-    
+
     $.ajax({
         url: '/product/getCategory',
-        method: 'GET', 
+        method: 'GET',
         success: function (data) {
             consol.log (data);
         }
     });
-    
+
 }
 
 //tombol simpan di klik
@@ -76,7 +76,7 @@ $('#simpan').click(function (e) {
     let description = $('#description').val();
     let status = $('#status').val();
     let harga = $('#harga').val();
-    
+
     $.ajax({
         url: '/product/store',
         method: 'POST',
