@@ -32,6 +32,8 @@ Route::group(['prefix'=>'product'],function (){
     Route::get('/',[ProductController::class, 'index'])->name('product.index');
     Route::post('/store',[ProductController::class,'store'])->name('product.store');
     Route::get('/getCategory',[ProductController::class, 'getCategory'])->name('product.getCategory');
+    Route::get('/uploadImage',[ProductController::class,'uploadImage']);
+    Route::post('/storeImage',[ProductController::class,'storeImage'])->name('product.storeImage');
 });
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
