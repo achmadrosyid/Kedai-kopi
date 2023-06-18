@@ -38,6 +38,8 @@ Route::group(['prefix'=>'product'],function (){
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
     Route::post('/store',[CategoryController::class,'store'])->name('category.store');
+    Route::get('/edit/{id}',[CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/update',[CategoryController::class,'update'])->name('category.update');
 });
 Route::get('/customer-order',[CustomerOrderController::class, 'index'])->name('customer-order.index');
 Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');

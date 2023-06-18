@@ -73,6 +73,57 @@ $('#simpan').click(function (e) {
     })
 })
 
-function Edit() {
+//modal edit
+$(document.body).on("click","#my-btn-edit", function (e) {
+    let id = $(this).attr("data-id")
+ 
+ $.ajax({
+    url: '/category/edit/'+id,
+    method: 'GET',
+    success: function (data) {
+        $('#category-edit').val(data.data.nama);
+        $('#modalEdit').modal('show'); 
+    }
+    })
+});
+function update(){
     $('#modalEdit').modal('show');
 }
+// update action
+$('#editSimpan').click(function (e) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    e.preventDefault();
+    let id = $('#id').val();
+    let category = $('#category-edit').val();
+
+    $.ajax({
+        url: '/category/update',
+        method: 'POST',
+        data: {
+            id: id,
+            category: category,
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error('<strong><li>' + value + '</li></strong>');
+                });
+            } else {
+                if(data.success === 1){
+                    getData();
+                    $('#editSimpan').modal('hide');
+                    toastr.success('Data Berhasil Di Simpan');
+                }else{
+                    toastr.warning('Data Gagal Disimpan')
+                }
+            }
+        }
+    })
+})
+
+
+

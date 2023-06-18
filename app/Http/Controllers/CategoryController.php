@@ -51,4 +51,32 @@ class CategoryController extends Controller
             return response()->json(['success' => 0]);
         }
     }
+
+    public function edit($id){
+      $data = Category::query()
+        ->select ('id','nama')->where('id',$id)->first();
+        
+        return response()->json(['data' => $data]);
+    }
+
+    public function update(Request $request){
+        $validator = Validator::make($request->all(), [
+            'category' => ['required']
+        ], ['category.required' => 'Mohon Inputkan Category']);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        //simpan data ke db
+        $data = Category::query()
+        ->update([
+            'nama' => $request->category
+        ]);
+        if ($data) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        } 
+    }
 }
