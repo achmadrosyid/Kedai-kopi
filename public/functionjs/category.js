@@ -81,14 +81,13 @@ $(document.body).on("click","#my-btn-edit", function (e) {
     url: '/category/edit/'+id,
     method: 'GET',
     success: function (data) {
+        $('#id').val(data.data.id);
         $('#category-edit').val(data.data.nama);
         $('#modalEdit').modal('show'); 
     }
     })
 });
-function update(){
-    $('#modalEdit').modal('show');
-}
+
 // update action
 $('#editSimpan').click(function (e) {
     $.ajaxSetup({

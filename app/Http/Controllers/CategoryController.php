@@ -55,7 +55,6 @@ class CategoryController extends Controller
     public function edit($id){
       $data = Category::query()
         ->select ('id','nama')->where('id',$id)->first();
-        
         return response()->json(['data' => $data]);
     }
 
@@ -70,6 +69,7 @@ class CategoryController extends Controller
 
         //simpan data ke db
         $data = Category::query()
+        ->where('id',$request->id)
         ->update([
             'nama' => $request->category
         ]);
