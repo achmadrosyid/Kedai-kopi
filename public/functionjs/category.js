@@ -124,5 +124,29 @@ $('#editSimpan').click(function (e) {
     })
 })
 
-
+//modal delete
+$(document.body).on("click","#my-btn-delete", function (e) {
+    let id = $(this).attr("data-id");
+    tempId = id;
+    $("#modalDelete").modal("show");
+});
+// delete
+$(document.body).on("click", "#delete", function (e) {
+    var id = $("#id").val();
+    e.preventDefault();
+    $.ajax({
+        url: "/category/delete/" + tempId,
+        method: "DELETE",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (res) {
+            if (res.data.succes) {
+                toastr.success("Data berhasil dihapus!");
+                getData();
+                $("#modalDelete").modal("hide");
+            }
+        },
+    });
+});
 
