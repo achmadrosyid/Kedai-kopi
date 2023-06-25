@@ -117,6 +117,34 @@
                 </div>
             </div>
         </div>
+
+        <!-- pop up Hapus -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" name="form">
+                            <input type="hidden" id="id">
+                            <div class="form-group">
+                                <label for="input-delete">Apakah yakin ingin menghapus data</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="delete" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
 @endsection

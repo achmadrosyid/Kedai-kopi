@@ -10,16 +10,16 @@
 @endsection
 @section('content')
 
-    <!-- tombol tambah kasir -->
-    <section class="buttom-header">
-        <div class="container fluid">
-            <div class="inner. col-lg-12">
-                <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
-                        onclick="create()">New Cashier
-                </button>
-            </div>
+<!-- tombol tambah kasir -->
+<section class="buttom-header">
+    <div class="container fluid">
+        <div class="inner. col-lg-12">
+            <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
+                    onclick="create()">New Cashier
+            </button>
         </div>
-    </section>
+    </div>
+</section>
 
     
 <!-- tabel kasir -->
@@ -82,7 +82,6 @@
             </div>
           </form> 
           </div>
-      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" id="simpan" class="btn btn-primary">Save Change</button>
@@ -91,6 +90,65 @@
   </div>
 </div>
 
+<!-- pop up Edit kasir -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Cashier</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+            <div class="modal-body">
+            <form id="form" name="form">
+                <input type="hidden" id="id">
+              <div class="form-group">
+                <label for="input-username">Username</label>
+                <input type="nama" class="form-control" id="namaEdit" placeholder="Input username">
+                <label for="input-email">Email</label>
+                <input type="email" class="form-control" id="emailEdit" placeholder="Input email">
+                <label for="input-password">password</label>
+                <input type="password" class="form-control" id="passwordEdit" placeholder="Input password">
+                <label for="input nomer">No. Hp</label>
+                <input type="nomer" class="form-control" id="nomerEdit" placeholder="Input Nomer">
+              </div>
+            </form> 
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="editSimpan" class="btn btn-primary">Save Change</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop up Hapus -->
+  <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form" name="form">
+                    <input type="hidden" id="id">
+                    <div class="form-group">
+                        <label for="input-delete">Apakah yakin ingin menghapus data</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="delete" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
 @section('script')

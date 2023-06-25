@@ -31,7 +31,7 @@ class CashierController extends Controller
                 ->addColumn('action',function ($row){
                     return
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Edit</a>
-                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delele" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
+                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
                 })
                 ->rawColumns(['nama','email','password','nomer','action'])
                 ->make(true);
@@ -42,9 +42,9 @@ class CashierController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'nama' => 'required', 'nomer' => 'numeric', 'password' => 'numeric'
+            'nama' => 'required', 'nomer' => 'numeric'
 
-        ],['nama.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP'],['password.numeric'=>'Masukkan Kombinasi Angka Pada Password']);
+        ],['nama.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP']);
         
 
         if ($validator->fails()){
@@ -64,5 +64,44 @@ class CashierController extends Controller
         } else {
             return response()->json(['success' => 0]);
         }
+    }
+
+    public function edit($id){
+        $data = Cashier::query()
+          ->select ('id','nama','email','password','nomer')->where('id',$id)->first();
+          return response()->json(['data' => $data]);
+      }
+
+    public function update(Request $request){
+        $validator = Validator::make($request->all(),[
+            'nama' => 'required', 'nomer' => 'numeric'
+
+        ],['nama.required'=>'Mohon Inputkan Username'],['nomer.numeric'=>'Mohon Inputkan Nomer HP']);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        //simpan data ke db
+        $data = Cashier::query()
+        ->where('id',$request->id)
+        ->update([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => $request->password,
+            'nomer' => $request->nomer
+        ]);
+        if ($data) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        } 
+    }
+
+    public function delete($id){
+        Cashier::where("id", $id)->delete();
+        $response['succes']= true;
+        $response['message']= "Data berhasil dihapus";
+        return response()->json(['data' => $response]);
     }
 }

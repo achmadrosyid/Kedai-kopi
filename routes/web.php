@@ -40,12 +40,16 @@ Route::group(['prefix'=>'category'],function (){
     Route::post('/store',[CategoryController::class,'store'])->name('category.store');
     Route::get('/edit/{id}',[CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/update',[CategoryController::class,'update'])->name('category.update');
+    Route::delete('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 });
 Route::get('/customer-order',[CustomerOrderController::class, 'index'])->name('customer-order.index');
 Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
 Route::group(['prefix'=>'cashier'],function (){
     Route::get('/',[CashierController::class, 'index'])->name('cashier.index');
     Route::post('/store',[CashierController::class,'store'])->name('cashier.store');
+    Route::get('/edit/{id}',[CashierController::class, 'edit'])->name('cashier.edit');
+    Route::post('/update',[CashierController::class,'update'])->name('cashier.update');
+    Route::delete('/delete/{id}',[CashierController::class,'delete'])->name('cashier.delete');
 });
 
 // Auth::routes();
