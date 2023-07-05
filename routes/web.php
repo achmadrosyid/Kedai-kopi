@@ -35,6 +35,9 @@ Route::group(['prefix'=>'product'],function (){
     Route::get('/uploadImage',[ProductController::class,'uploadImage']);
     Route::post('/storeImage',[ProductController::class,'storeImage'])->name('product.storeImage');
 });
+Route::group(['prefix'=>'customer-order'],function (){
+    Route::get('/',[CustomerOrderController::class, 'index'])->name('customer-order.index');
+});
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
     Route::post('/store',[CategoryController::class,'store'])->name('category.store');
@@ -42,7 +45,6 @@ Route::group(['prefix'=>'category'],function (){
     Route::post('/update',[CategoryController::class,'update'])->name('category.update');
     Route::delete('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 });
-Route::get('/customer-order',[CustomerOrderController::class, 'index'])->name('customer-order.index');
 Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
 Route::group(['prefix'=>'cashier'],function (){
     Route::get('/',[CashierController::class, 'index'])->name('cashier.index');
@@ -52,10 +54,11 @@ Route::group(['prefix'=>'cashier'],function (){
     Route::delete('/delete/{id}',[CashierController::class,'delete'])->name('cashier.delete');
 });
 
+
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
