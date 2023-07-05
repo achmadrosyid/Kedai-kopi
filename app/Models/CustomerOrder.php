@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerOrder extends Model
 {
     use HasFactory;
-    protected $table = 'customerorder';
+    protected $table = 'customer-order';
     protected $fillable = [
-        'id_pesanan',
+        'id_product',
+        'detail_product',
         'nama',
         'meja',
-        'detail_pesanan',
+        'jumlah',
+        'diskon',
         'pembayaran',
     ];
 }
-
