@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Upload Image Product</h3>
+                        <h3 class="card-title">Tambah Gambar Produk</h3>
                     </div>
                     <div class="card-body">
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">

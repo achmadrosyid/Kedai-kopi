@@ -4,23 +4,23 @@
   <div class="col-12">
     <div class="card flat">
       <div class="card-header card-header-blue">
-          <span class="card-title">Sales Report</span>
+          <span class="card-title">Laporan Penjualan</span>
       </div>
       <div class="card-body">
         
         <div id="select-product" style="display: none;" class="row mb-1">
-          <label for="product" class="col-sm-2 col-form-label">product</label>
+          <label for="product" class="col-sm-2 col-form-label">Produk</label>
           
         </div>
 
         <hr>
-        <h6 class="mb-3">Report Period</h6>
+        <h6 class="mb-3">Periode Laporan</h6>
         <div class="row mb-3">
           <div class="col-sm-2">
             <div class="form-check">
               <input class="form-check-input check-mode" type="radio" name="periode" id="byTanggal" value="by_tanggal">
               <label class="form-check-label" for="byTanggal">
-              Daily
+              Hari
               </label>
             </div>
           </div>
@@ -41,7 +41,7 @@
             <div class="form-check">
               <input class="form-check-input check-mode" type="radio" name="periode" id="byBulan" value="by_bulan">
               <label class="form-check-label" for="byBulan">
-              Monthly
+              Bulan
               </label>
             </div>
           </div>
@@ -82,7 +82,7 @@
             <div class="form-check">
               <input class="form-check-input check-mode" type="radio" name="periode" id="byTahun" value="by_tahun">
               <label class="form-check-label" for="byTahun">
-              Annual
+              Tahun
               </label>
             </div>
           </div>

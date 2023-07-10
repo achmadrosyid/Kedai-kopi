@@ -9,7 +9,7 @@
           <div class="col-md-6 col-9">
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h4>Sales Today</h4>
+                <h4>Penjualan Hari Ini</h4>
                 <input type="text" class="col-md-6 col-md-9"> 
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -22,7 +22,7 @@
           <div class="col-md-6 col-9">
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>Profit Today</h4>
+                <h4>Keuntungan Hari Ini</h4>
                 <input type="text" class="col-md-6 col-md-9"> 
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

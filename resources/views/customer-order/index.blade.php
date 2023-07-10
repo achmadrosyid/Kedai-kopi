@@ -29,7 +29,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Order </h3>
+              <h3 class="card-title">Pesanan Pelanggan </h3>
             </div>
             <div class="card-body">
               <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">           
@@ -39,11 +39,11 @@
                     <thead>
                       <tr>
                       <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Name Customer</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Table</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Order</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Count</th>
-                      <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Action</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Nama Pelanggan</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Meja</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Pesanan</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Jumlah</th>
+                      <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Keterangan</th>
                       </tr>
                     </thead>
                     </table>
@@ -59,7 +59,7 @@
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Input Order</h5>
+                  <h5 class="modal-title">Tambah Pesanan</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -68,7 +68,7 @@
               <div class="modal-body">
               <div class="form-group">
                   <div class="form-group">
-                      <label>Date range:</label>
+                      <label>Tanggal Pesanan:</label>
                       <div class="input-group">
                       <div class="input-group-prepend">
                       <span class="input-group-text">
@@ -79,17 +79,17 @@
                       </div>
                 </div>
                 
-                <label for="input-customer">Name Customer</label>
+                <label for="input-customer">Nama Pelanggan</label>
                 <input type="customer" class="form-control" id="input-customer" placeholder="Input customer">
-                <label for="input-table">Table</label>
+                <label for="input-table">Meja</label>
                 <input type="table" class="form-control" id="input-table" placeholder="Input table">
                 <label for="input-status">Status</label>
                 <input type="status" class="form-control" id="input-status" placeholder="Input status">
               </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Payment</h5>
+                <h5 class="modal-title">Pembayaran</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -110,7 +110,7 @@
               <div class="modal-body">
               <div class="form-group">
                   <div class="form-group">
-                      <label>Date range:</label>
+                      <label>Tanggal Pesanan:</label>
                       <div class="input-group">
                       <div class="input-group-prepend">
                       <span class="input-group-text">
@@ -121,20 +121,20 @@
                       </div>
                 </div>
                 
-                <label for="input-customer">Name Customer</label>
+                <label for="input-customer">Nama Pelanggan</label>
                 <input type="customer" class="form-control" id="input-customer" placeholder="Input customer">
-                <label for="input-amount">Amount</label>
+                <label for="input-amount">Jumlah</label>
                 <input type="amount" class="form-control" id="input-amount" placeholder="Input amount">
-                <label for="input-discount">discount</label>
+                <label for="input-discount">Diskon</label>
                 <input type="discount" class="form-control" id="input-discount" placeholder="Input discount">
                 <label for="input-total">Total</label>
                 <input type="total" class="form-control" id="input-total" placeholder="Input total">
               </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary">Delete</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Pay</button>
+                <button type="button" class="btn btn-secondary">Hapus</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Bayar</button>
               </div>
             </div>
           </div>

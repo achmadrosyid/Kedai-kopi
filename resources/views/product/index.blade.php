@@ -14,7 +14,7 @@
         <div class="container fluid">
             <div class="inner. col-lg-12">
                 <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
-                    onclick="create()">New Product
+                    onclick="create()">Tambah Produk
                 </button>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Input Product</h5>
+                    <h5 class="modal-title">Tambah Produk</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -34,17 +34,7 @@
                     <form id="form" name="form" enctype="multipart/form-data">
                         <img id="preview-image" width="300px">
                         <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputImage" >
-                                    <label class="custom-file-label" for="inputGroupFile02"
-                                        aria-describedby="inputGroupFileAddon02">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="img" class="btn-primary">Upload</span>
-                                </div>
-                            </div>
-                            <label for="input-category">Category</label>
+                            <label for="input-category">Kategori</label>
                             <div class="form-group" id="id_category">
                                 <select name="tipe" id="tipe_category" class="form-control select2" style="width: 100%;">
                                     @foreach ($category as $val)
@@ -54,9 +44,9 @@
                                 <div class="invalid-feedback"> Example invalid custom select feedback
                                 </div>
                             </div>
-                            <label for="input-product">Name Product</label>
+                            <label for="input-product">Nama Produk</label>
                             <input type="product" class="form-control" id="nama" placeholder="Input product">
-                            <label for="input-description">Description</label>
+                            <label for="input-description">Deskripsi</label>
                             <input type="description" class="form-control" id="description" placeholder="Input description">
                             <label for="input-status">Status</label>
                             <input type="status" class="form-control" id="status" placeholder="Input status">
@@ -64,8 +54,8 @@
                             <input type="harga" class="form-control" id="harga" placeholder="Input harga">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" id="simpan" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" id="simpan" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -82,10 +72,10 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="card-title">Product </h3>
+                                <h3 class="card-title">Produk</h3>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="/product/uploadImage" class="btn btn-primary btn-sm"><i class="fa fa-image"></i> Image Product</a>
+                                <a href="/product/uploadImage" class="btn btn-primary btn-sm"><i class="fa fa-image"></i> Gambar Produk</a>
                             </div>
                         </div>
                     </div>
@@ -105,19 +95,19 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Browser: activate to sort column ascending"
-                                                    style="width: 10%">Image</th>
+                                                    style="width: 10%">Gambar</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 10%">Category</th>
+                                                    style="width: 10%">Kategori</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="Browser: activate to sort column ascending"
-                                                    style="width: 10%">Product</th>
+                                                    style="width: 10%">Produk</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 10">Description</th>
+                                                    style="width: 10">Deskripsi</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending"
@@ -125,11 +115,11 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 10%">Price</th>
+                                                    style="width: 10%">Harga</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 30%">Action</th>
+                                                    style="width: 30%">Keterangan</th>
                                             </tr>
                                         </thead>
                                     </table>

@@ -33,7 +33,7 @@ class CustomerOrderController extends Controller
                 })
                 ->addColumn('action',function ($row){
                     return
-                        '<a href="javascript:void(0)" class="btn btn-primary btn-sm" id="my-btn-pay" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Payment</a> ';
+                        '<a href="javascript:void(0)" class="btn btn-primary btn-sm" id="my-btn-pay" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Pembayaran</a> ';
                 })
                 ->rawColumns(['id','detail_product','nama','meja','jumlah','action'])
                 ->make(true);

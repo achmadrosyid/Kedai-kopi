@@ -10,11 +10,12 @@ function getData() {
         searching: false,
         info: true,
         ordering: true,
-        bDestroy: true,
+        bDestroy: false,
         ajax: {
             url: '/category',
             type: "GET",
             dataSrc: function (json) {
+                console.log('json', json)
                 json.data.forEach(function (row, index) {
                     row.no = index + 1; // Menambahkan nomor data secara otomatis
                 });
@@ -22,7 +23,7 @@ function getData() {
             }
         },
         columns: [
-            {data: 'no', width: "5%"},
+            {data: 'no'},
             {data: 'nama'},
             {data: 'action', width: "20%"}
         ],

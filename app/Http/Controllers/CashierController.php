@@ -30,8 +30,8 @@ class CashierController extends Controller
                 })
                 ->addColumn('action',function ($row){
                     return
-                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Edit</a>
-                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Delete</a> ';
+                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
+                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Hapus</a> ';
                 })
                 ->rawColumns(['nama','email','password','nomer','action'])
                 ->make(true);

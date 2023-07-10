@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Category </h3>
+                        <h3 class="card-title">Kategori</h3>
                     </div>
                     <div class="card-body">
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
@@ -51,7 +51,7 @@
                                             <th class="text-center sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Browser: activate to sort column ascending"
-                                                style="width: 10%">Action
+                                                style="width: 10%">Keterangan
                                             </th>
                                         </tr>
                                         </thead>
@@ -69,7 +69,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Input Category</h5>
+                        <h5 class="modal-title">Tambah Kategori</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -78,14 +78,14 @@
                         <form id="form" name="form">
                             <input type="hidden" id="id">
                             <div class="form-group">
-                                <label for="input-category">Category</label>
+                                <label for="input-category">Kategori</label>
                                 <input type="text" class="form-control" id="category" placeholder="Input Category">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="simpan" class="btn btn-primary">Save Change</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="simpan" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Category</h5>
+                        <h5 class="modal-title">Ubah Kategori</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -105,14 +105,14 @@
                         <form id="form" name="form">
                             <input type="hidden" id="id">
                             <div class="form-group">
-                                <label for="input-category">Category</label>
+                                <label for="input-category">Kategori</label>
                                 <input type="text" class="form-control" id="category-edit" placeholder="Input Category">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="editSimpan" class="btn btn-primary">Save Change</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="editSimpan" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -137,8 +137,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="delete" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="delete" class="btn btn-danger">Hapus</button>
                     </div>
                 </div>
             </div>
