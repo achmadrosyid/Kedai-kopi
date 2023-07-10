@@ -15,7 +15,7 @@
         <div class="container fluid">
             <div class="inner. col-lg-12">
                 <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
-                        onclick="create()">New Category
+                        onclick="create()">Tambah Kategori
                 </button>
             </div>
         </div>
