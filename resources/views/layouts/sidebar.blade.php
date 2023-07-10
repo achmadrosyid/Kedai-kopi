@@ -16,8 +16,7 @@
             <a href="{{route('home')}}" class="{{ request()->is('home') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Home
-                
+                Beranda
               </p>
             </a>
           </li>
@@ -26,7 +25,7 @@
             <a href="{{route('product.index')}}" class="{{ request()->is('product') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-weight-hanging"></i>
               <p>
-                 Product
+                 Data Produk
               </p>
             </a>
           </li>
@@ -35,7 +34,7 @@
           <a href="{{route('category.index')}}" class="{{ request()->is('category') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-shapes"></i>
               <p>
-                 Category
+                 Data Kategory
               </p>
             </a>
           </li>
@@ -44,7 +43,7 @@
           <a href="{{route('customer-order.index')}}" class="{{ request()->is('customer-order') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-comment-dots"></i>
               <p>
-                Customer Orders
+                Pesanan Pelanggan
               </p>
             </a>
           </li>
@@ -53,7 +52,7 @@
           <a href="{{route('sales-report.index')}}" class="{{ request()->is('sales-report') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-money-bill-wave-alt"></i>
               <p>
-                Sales Report
+                Laporan Penjualan
               </p>
             </a>
           </li>
@@ -62,10 +61,19 @@
           <a href="{{route('cashier.index')}}" class="{{ request()->is('cashier') ? 'nav-link active' : 'nav-link'}}">
                 <i class="nav-icon fas fa-edit"></i>
               <p>
-                Cashier
+                Data Kasir
               </p>
             </a>
           </li>
+          <!-- Meja -->
+          <li class="nav-item">
+            <a href="{{route('meja.index')}}" class="{{ request()->is('meja') ? 'nav-link active' : 'nav-link'}}">
+                <i class="nav-icon fas fa-shapes"></i>
+                <p>
+                   ID Meja
+                </p>
+              </a>
+            </li>
           <!-- kedai-kopi-super -->
           <li class="nav-item">
           <a href="{{route('kedai-kopi-super.index')}}" class="{{ request()->is('kedai-kopi-super') ? 'nav-link active' : 'nav-link'}}">
@@ -81,7 +89,7 @@
           <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
             <i class="nav-icon fas fa-comment-dots"></i>
               <p>
-                Order
+                Pesanan
               </p>
             </a>
           </li>
