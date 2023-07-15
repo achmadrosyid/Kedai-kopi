@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Meja;
 use Illuminate\Support\Facades\Validator;
-use Psy\Readline\Hoa\Console;
 use Yajra\DataTables\DataTables;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MejaController extends Controller
 {
@@ -35,8 +35,8 @@ class MejaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'meja' => ['numeric']
-        ], ['meja.numeric' => 'Mohon Masukkan Nomer Meja']);
+            'meja' => ['required']
+        ], ['meja.required' => 'Mohon Inputkan Id Meja']);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
@@ -88,4 +88,14 @@ class MejaController extends Controller
         $response['message']= "Data berhasil dihapus";
         return response()->json(['data' => $response]);
     }
+    
+    public function printQR(Request $request)
+    {
+        $tableID = $request->input('table_id');
+
+        $qrCode = Meja::generate($tableID);
+
+        return view('meja.printQR', compact('meja', 'qrCode'));
+    }
+
 }

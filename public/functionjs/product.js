@@ -15,7 +15,6 @@ function getData() {
             url: '/product',
             type: "GET",
             dataSrc: function (json) {
-                console.log('masukk', json)
                 json.data.forEach(function (row, index) {
                     row.no = index + 1; // Menambahkan nomor data secara otomatis
                 });
@@ -55,7 +54,6 @@ function getCategory() {
         url: '/product/getCategory',
         method: 'GET',
         success: function (data) {
-            consol.log (data);
         }
     });
 
@@ -74,7 +72,7 @@ $('#simpan').click(function (e) {
     let id_category = $('#tipe_category').val();
     let nama = $('#nama').val();
     let description = $('#description').val();
-    let status = $('#status').val();
+    let status = $('#tipe_status').val();
     let harga = $('#harga').val();
 
     $.ajax({
@@ -108,3 +106,94 @@ $('#simpan').click(function (e) {
         }
     })
 })
+
+//modal edit
+$(document.body).on("click", "#my-btn-edit", function (e) {
+    let id = $(this).attr("data-id");
+
+    $.ajax({
+        url: "/product/edit/" + id,
+        method: "GET",
+        success: function (data) {
+            $("#id").val(data.data.id);
+            $("#namaEdit").val(data.data.nama);
+            $("#tipe_categoryEdit").val(data.data.id_category);
+            $("#descriptionEdit").val(data.data.description);
+            $("#tipe_statusEdit").val(data.data.status);
+            $("#hargaEdit").val(data.data.harga);
+            $("#modalEdit").modal("show");
+        },
+    });
+});
+
+// update action
+$("#editSimpan").click(function (e) {
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+    });
+    e.preventDefault();
+    let id = $('#id').val();
+    let id_category = $('#tipe_categoryEdit').val();
+    let nama = $('#namaEdit').val();
+    let description = $('#descriptionEdit').val();
+    let status = $('#tipe_statusEdit').val();
+    let harga = $('#hargaEdit').val();
+
+    $.ajax({
+        url: "/product/update",
+        method: "POST",
+        data: {
+            id: id,
+            id_category: id_category,
+            nama: nama,
+            description: description,
+            status: status,
+            harga: harga,
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error("<strong><li>" + value + "</li></strong>");
+                });
+            } else {
+                if (data.success === 1) {
+                    getData();
+                    $("#editSimpan").modal("hide");
+                    toastr.success("Data Berhasil Di Simpan");
+                } else {
+                    toastr.warning("Data Gagal Disimpan");
+                }
+            }
+        },
+    });
+});
+
+let tempId = null;
+
+//modal delete
+$(document.body).on("click", "#my-btn-delete", function (e) {
+    let id = $(this).attr("data-id");
+    tempId = id;
+    $("#modalDelete").modal("show");
+});
+// delete
+$(document.body).on("click", "#delete", function (e) {
+    var id = $("#id").val();
+    e.preventDefault();
+    $.ajax({
+        url: "/product/delete/" + tempId,
+        method: "DELETE",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (res) {
+            if (res.data.succes) {
+                toastr.success("Data berhasil dihapus!");
+                getData();
+                $("#modalDelete").modal("hide");
+            }
+        },
+    });
+});

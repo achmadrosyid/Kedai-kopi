@@ -82,7 +82,8 @@ $(document.body).on("click","#my-btn-edit", function (e) {
     success: function (data) {
         $('#id').val(data.data.id);
         $('#meja-edit').val(data.data.meja);
-        $('#modalEdit').modal('show'); 
+        $('#modalEdit').modal('show');
+        $('#printQr').attr('data-id', JSON.stringify(data.data.id)) 
     }
     })
 });
@@ -148,4 +149,21 @@ $(document.body).on("click", "#delete", function (e) {
         },
     });
 });
+
+//on print
+$('#printQr').on("click", () => {
+    console.log('masuk on click print', $('#printQr').attr('data-id'))
+    const idTable = $('#printQr').attr('data-id')
+    var qrCodeBaseUri = 'https://api.qrserver.com/v1/create-qr-code/?',
+    params = {
+        data: `https://www.instagram.com/amad_rosyid/`,
+        size: '400x400',
+        margin: 20,
+        bgcolor: '#FF0000',
+        // more configuration parameters ...
+        download: 1
+    };
+
+window.location.href = qrCodeBaseUri + $.param(params);
+})
 

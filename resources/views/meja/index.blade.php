@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{asset('AdminLTE/plugins/toastr/toastr.min.css')}}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    {{-- qr --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 {{--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m9=" crossorigin="anonymous"></script>--}}
     <input type="hidden" id="url">
     <input type="hidden" id="token" value="{{csrf_token()}}">
@@ -21,7 +23,6 @@
     </div>
 </section>
 
-    
 <!-- tabel meja -->
 <br>
  <section class="content">
@@ -103,6 +104,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
           <button type="button" id="editSimpan" class="btn btn-primary">Simpan</button>
+          <button type="button" id="printQr" class="btn btn-primary">Print</button>
         </div>
       </div>
     </div>

@@ -32,6 +32,9 @@ Route::group(['prefix'=>'product'],function (){
     Route::get('/getCategory',[ProductController::class, 'getCategory'])->name('product.getCategory');
     Route::get('/uploadImage',[ProductController::class,'uploadImage']);
     Route::post('/storeImage',[ProductController::class,'storeImage'])->name('product.storeImage');
+    Route::get('/edit/{id}',[ProductController::class, 'edit'])->name('product.edit');
+    Route::post('/update',[ProductController::class,'update'])->name('product.update');
+    Route::delete('/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
 });
 Route::group(['prefix'=>'category'],function (){
     Route::get('/',[CategoryController::class, 'index'])->name('category.index');
@@ -57,8 +60,11 @@ Route::group(['prefix'=>'meja'],function (){
     Route::get('/edit/{id}',[MejaController::class, 'edit'])->name('meja.edit');
     Route::post('/update',[MejaController::class,'update'])->name('meja.update');
     Route::delete('/delete/{id}',[MejaController::class,'delete'])->name('meja.delete');
+    Route::post('/printQR',[MejaController::class, 'printQR'])->name('meja.printQR');
 });
-Route::get('/kedai-kopi-super',[KedaiKopiSuperController::class, 'index'])->name('kedai-kopi-super.index');
+Route::group(['prefix'=>'kedai-kopi-super'],function (){
+    Route::get('/',[KedaiKopiSuperController::class, 'index'])->name('kedai-kopi-super.index');
+});
 Route::get('/order',[OrderController::class, 'index'])->name('order.index');
 
 

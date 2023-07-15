@@ -32,7 +32,7 @@ class ProductController extends Controller
                     return $row->description;
                 })
                 ->addColumn('status', function ($row) {
-                    return $row->status;
+                    return $row->status === 1 ? 'Tersedia' : 'Habis';
                 })
                 ->addColumn('harga', function ($row) {
                     return $row->harga;
@@ -40,7 +40,7 @@ class ProductController extends Controller
                 ->addColumn('action', function ($row) {
                     return
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
-                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delele" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a>';
+                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a>';
                 })
                 ->rawColumns(['img', 'category', 'nama', 'description', 'status', 'harga', 'action'])
                 ->make(true);
@@ -102,4 +102,45 @@ class ProductController extends Controller
             ]);
         return redirect()->route('product.index');
     }
+
+    public function edit($id){
+        $data = Product::query()
+          ->where('id',$id)->first();
+          return response()->json(['data' => $data]);
+      }
+  
+      public function update(Request $request){
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required', 'harga' => 'numeric'
+        ], ['nama.required' => 'Mohon Masukkan Nama Produk', ['harga.numeric' => 'Mohon Masukkan Harga']]);
+
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+  
+          //simpan data ke db
+          $data = Product::query()
+          ->where('id',$request->id)
+          ->update([
+            'id_category' => $request->id_category,
+            'nama' => $request->nama,
+            'description' => $request->description,
+            'status' => $request->status,
+            'harga' => $request->harga
+          ]);
+          if ($data) {
+              return response()->json(['success' => 1]);
+          } else {
+              return response()->json(['success' => 0]);
+          } 
+      }
+  
+      // modal delete
+      public function delete($id){
+          Product::where("id", $id)->delete();
+          $response['succes']= true;
+          $response['message']= "Data berhasil dihapus";
+          return response()->json(['data' => $response]);
+      }
 }

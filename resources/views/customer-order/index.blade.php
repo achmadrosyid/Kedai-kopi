@@ -11,16 +11,6 @@
 @endsection
 @section('content')
 
-  <!-- tombol tambah customer order -->
-  <section class="buttom-header">
-      <div class="container fluid">
-          <div class="inner. col-lg-12">
-              <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
-                      onclick="create()">New Order
-              </button>
-          </div>
-      </div>
-  </section>
 
   {{-- tabel customer order --}}
   <br>

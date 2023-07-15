@@ -34,7 +34,7 @@
           <a href="{{route('category.index')}}" class="{{ request()->is('category') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-shapes"></i>
               <p>
-                 Data Kategory
+                 Data Kategori
               </p>
             </a>
           </li>
@@ -70,7 +70,7 @@
             <a href="{{route('meja.index')}}" class="{{ request()->is('meja') ? 'nav-link active' : 'nav-link'}}">
                 <i class="nav-icon fas fa-shapes"></i>
                 <p>
-                   ID Meja
+                   Data Meja
                 </p>
               </a>
             </li>

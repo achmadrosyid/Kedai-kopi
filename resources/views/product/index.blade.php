@@ -19,51 +19,7 @@
             </div>
         </div>
     </section>
-
-    <!-- pop up tambah produk -->
-    <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Tambah Produk</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="form" name="form" enctype="multipart/form-data">
-                        <img id="preview-image" width="300px">
-                        <div class="form-group">
-                            <label for="input-category">Kategori</label>
-                            <div class="form-group" id="id_category">
-                                <select name="tipe" id="tipe_category" class="form-control select2" style="width: 100%;">
-                                    @foreach ($category as $val)
-                                        <option value="{{ $val->id }}">{{ $val->nama }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-feedback"> Example invalid custom select feedback
-                                </div>
-                            </div>
-                            <label for="input-product">Nama Produk</label>
-                            <input type="product" class="form-control" id="nama" placeholder="Input product">
-                            <label for="input-description">Deskripsi</label>
-                            <input type="description" class="form-control" id="description" placeholder="Input description">
-                            <label for="input-status">Status</label>
-                            <input type="status" class="form-control" id="status" placeholder="Input status">
-                            <label for="input-harga">Harga</label>
-                            <input type="harga" class="form-control" id="harga" placeholder="Input harga">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="submit" id="simpan" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <br>
-
     <!-- tabel produk -->
     <section class="content">
         <div class="container fluid">
@@ -140,6 +96,129 @@
             </div>
         </div>
     </section>
+
+    <!-- pop up tambah produk -->
+    <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" name="form" enctype="multipart/form-data">
+                        <img id="preview-image" width="300px">
+                        <div class="form-group">
+                            <label for="input-category">Kategori</label>
+                            <div class="form-group" id="id_category">
+                                <select name="tipe" id="tipe_category" class="form-control select2" style="width: 100%;">
+                                    @foreach ($category as $val)
+                                        <option value="{{ $val->id }}">{{ $val->nama }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback"> Example invalid custom select feedback
+                                </div>
+                            </div>
+                            <label for="input-product">Nama Produk</label>
+                            <input type="product" class="form-control" id="nama" placeholder="Input product">
+                            <label for="input-description">Deskripsi</label>
+                            <input type="description" class="form-control" id="description" placeholder="Input description">
+                            <label for="input-status">Status</label>
+                            <div class="form-group">
+                                <select name="status" class="form-control" id="tipe_status">
+                                    <option value="1">Tersedia</option>
+                                    <option value="0">Habis</option>
+                                </select>
+                            </div>
+                            <label for="input-harga">Harga</label>
+                            <input type="harga" class="form-control" id="harga" placeholder="Input harga">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" id="simpan" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pop up Edit produk -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" name="form" enctype="multipart/form-data">
+                        <img id="preview-image" width="300px">
+                        <div class="form-group">
+                            <label for="input-category">Kategori</label>
+                            <div class="form-group" id="id_category">
+                                <select name="tipe" id="tipe_categoryEdit" class="form-control select2" style="width: 100%;">
+                                    @foreach ($category as $val)
+                                        <option value="{{ $val->id }}">{{ $val->nama }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback"> Example invalid custom select feedback
+                                </div>
+                            </div>
+                            <label for="input-product">Nama Produk</label>
+                            <input type="product" class="form-control" id="namaEdit" placeholder="Input product">
+                            <label for="input-description">Deskripsi</label>
+                            <input type="description" class="form-control" id="descriptionEdit" placeholder="Input description">
+                            <label for="input-status">Status</label>
+                            <div class="form-group">
+                                <select name="status" class="form-control" id="tipe_statusEdit">
+                                    <option value="1">Tersedia</option>
+                                    <option value="0">Habis</option>
+                                </select>
+                            </div>
+                            <label for="input-harga">Harga</label>
+                            <input type="harga" class="form-control" id="hargaEdit" placeholder="Input harga">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" id="editSimpan" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pop up Hapus -->
+  <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form" name="form">
+                    <input type="hidden" id="id">
+                    <div class="form-group">
+                        <label for="input-delete">Apakah yakin ingin menghapus data</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" id="delete" class="btn btn-danger">Hapus</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 @section('script')
     <!-- Toastr -->
