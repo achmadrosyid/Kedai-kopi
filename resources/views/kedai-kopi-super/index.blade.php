@@ -92,7 +92,7 @@
                               <h5 class="card-title">{{ $row->harga }}</h5>
                                 <p class="card-text">{{ $row->nama }}</p>
                               <a href="#" class="btn btn-primary" style="width: 6rem;">Tambah</a>
-                              {{-- <a href="#" class="btn btn-secondary" style="width: 6rem;">Keranjang</a> --}}
+                              <a href="#" class="btn btn-secondary"><i class="nav-icone fa-cart-shopping"></i></a>
                             </div>
                           </div>
                         </div>

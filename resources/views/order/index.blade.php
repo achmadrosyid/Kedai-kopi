@@ -12,7 +12,7 @@
     <!-- tabel Ordet -->
     <section class="content">
         <div class="container fluid">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Pesanan </h3>
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6">
+                                <div class="col-lg-12 col-md-12 col-xs-12">
                                     <table id="data-table"
                                            class="table table-bordered table-striped dataTable dtr-inline"
                                            aria-describedby="example1_info">
@@ -33,7 +33,7 @@
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                 colspan="1" aria-label="Browser: activate to sort column ascending">
-                                                Kategori
+                                                Pesanan
                                             </th>
                                             <th class="text-center sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1"

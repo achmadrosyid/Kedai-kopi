@@ -29,7 +29,7 @@ class OrderController extends Controller
                 ->rawColumns(['nama', 'action'])
                 ->make(true);
         }
-        return view('category.index');
+        return view('order.index');
     }
 
     public function store(Request $request)

@@ -27,7 +27,7 @@ function getData() {
             { data: "nama" },
             { data: "meja" },
             { data: "jumlah" },
-            { data: "action", width: "20%" },
+            { data: "action", width: "10%" },
         ],
     });
 }
