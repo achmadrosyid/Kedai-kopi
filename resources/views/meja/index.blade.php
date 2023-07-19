@@ -16,7 +16,7 @@
 <section class="buttom-header">
     <div class="container fluid">
         <div class="inner. col-lg-12">
-            <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
+            <button type="button" class="btn btn-primary btn-md" data-dismiss="modal"
                     onclick="create()">Tambah Meja
             </button>
         </div>
@@ -33,7 +33,7 @@
             <h3 class="card-title"> Meja </h3>
           </div>
             <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                         <div class="row">
                             <div class="col-sm-12">
                           <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">

@@ -45,6 +45,8 @@ Route::group(['prefix'=>'category'],function (){
 });
 Route::group(['prefix'=>'customer-order'],function (){
     Route::get('/',[CustomerOrderController::class, 'index'])->name('customer-order.index');
+    Route::get('/edit/{id}',[CustomerOrderController::class, 'edit'])->name('customer-order.edit');
+    Route::post('/update',[CustomerOrderController::class,'update'])->name('customer-order.update');
 });
 Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
 Route::group(['prefix'=>'cashier'],function (){

@@ -1,4 +1,6 @@
 @extends('layouts.master')
+{{-- @include('layouts.navbar') --}}
+
 @section('header-include')
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/toastr/toastr.min.css') }}">
@@ -10,7 +12,10 @@
 @endsection
 @section('content')
 <section class="content">
-  {{-- popular menu 1 --}}
+  {{-- produk list --}}
+  <div class="container fluid ">
+    <div class="col-md-12">
+    {{-- popular menu 1 --}}
   <div class="row">
     <div class="col-lg-3 col-6">
         <div class="small-box bg-info">
@@ -64,9 +69,6 @@
       </div>
     </div>
   </div>
-  {{-- produk list --}}
-  <div class="container fluid ">
-      <div class="col-md-12">
           <div class="card">
               <div class="card-header">
                   <h3 class="card-title">Produk </h3>
@@ -80,17 +82,17 @@
                       @endforeach
                   </select>
                 <div class="card-body">
-                  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                     <div class="row ">
                         @foreach($data as $row)
-                        <div class="col-12">
-                          <div class="card  " style="width: 16rem;">
-                            <img class="card-img-top " src="/storage/{{ $row->img }}"  style="width: 16rem;" alt="Card image cap">
+                        <div class="col-lg-2 col-sm-6 col-xs-6">
+                          <div class="card  " style="width: 10rem;">
+                            <img class="card-img-top " src="/storage/{{ $row->img }}"  style="width: 10rem;" alt="Card image cap">
                             <div class="card-body">
                               <h5 class="card-title">{{ $row->harga }}</h5>
                                 <p class="card-text">{{ $row->nama }}</p>
                               <a href="#" class="btn btn-primary" style="width: 6rem;">Tambah</a>
-                              <a href="#" class="btn btn-secondary" style="width: 6rem;">Keranjang</a>
+                              {{-- <a href="#" class="btn btn-secondary" style="width: 6rem;">Keranjang</a> --}}
                             </div>
                           </div>
                         </div>

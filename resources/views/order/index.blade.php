@@ -12,15 +12,15 @@
     <!-- tabel Ordet -->
     <section class="content">
         <div class="container fluid">
-            <div class="col-md-12">
+            <div class="col-xs-12 col-md-6">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Pesanan </h3>
                     </div>
                     <div class="card-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-xs-12 col-md-6">
                                     <table id="data-table"
                                            class="table table-bordered table-striped dataTable dtr-inline"
                                            aria-describedby="example1_info">

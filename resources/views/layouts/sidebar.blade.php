@@ -89,7 +89,7 @@
           <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
             <i class="nav-icon fas fa-comment-dots"></i>
               <p>
-                Pesanan
+                Keranjang
               </p>
             </a>
           </li>

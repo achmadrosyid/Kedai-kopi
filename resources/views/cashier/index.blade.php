@@ -14,7 +14,7 @@
 <section class="buttom-header">
     <div class="container fluid">
         <div class="inner. col-lg-12">
-            <button type="button" class="extrasmall. btn-blok btn-primary btn-md col-3" data-dismiss="modal"
+            <button type="button" class="btn btn-primary btn-md" data-dismiss="modal"
                     onclick="create()">Tambah Kasir
             </button>
         </div>
@@ -26,13 +26,13 @@
 <br>
  <section class="content">
     <div class="container fluid">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h3 class="card-title"> Kasir </h3>
           </div>
             <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                         <div class="row">
                             <div class="col-sm-12">
                           <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
