@@ -38,18 +38,18 @@
               </p>
             </a>
           </li>
-          <!-- Customer Orders -->
+          <!-- Pesanan Pelanggan -->
           <li class="nav-item">
-          <a href="{{route('customer-order.index')}}" class="{{ request()->is('customer-order') ? 'nav-link active' : 'nav-link'}}">
+          <a href="{{route('pesanan-pelanggan.index')}}" class="{{ request()->is('pesanan-pelanggan') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-comment-dots"></i>
               <p>
                 Pesanan Pelanggan
               </p>
             </a>
           </li>
-          <!-- Sales Report -->
+          <!-- Laporan Penjualan -->
           <li class="nav-item">
-          <a href="{{route('sales-report.index')}}" class="{{ request()->is('sales-report') ? 'nav-link active' : 'nav-link'}}">
+          <a href="{{route('laporan-penjualan.index')}}" class="{{ request()->is('laporan-penjualan') ? 'nav-link active' : 'nav-link'}}">
               <i class="nav-icon fas fa-money-bill-wave-alt"></i>
               <p>
                 Laporan Penjualan
@@ -74,19 +74,19 @@
                 </p>
               </a>
             </li>
-          <!-- kedai-kopi-super -->
+          <!-- order -->
           <li class="nav-item">
-          <a href="{{route('kedai-kopi-super.index')}}" class="{{ request()->is('kedai-kopi-super') ? 'nav-link active' : 'nav-link'}}">
+          <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
                 <i class="nav-icon fas fa-home"></i>
               <p>
-                Kedai Kopi Super
+                Pesanan
               </p>
             </a>
           </li>
         
-          <!-- Order -->
+          <!-- keranjang -->
           <li class="nav-item">
-          <a href="{{route('order.index')}}" class="{{ request()->is('order') ? 'nav-link active' : 'nav-link'}}">
+          <a href="{{route('keranjang.index')}}" class="{{ request()->is('keranjang') ? 'nav-link active' : 'nav-link'}}">
             <i class="nav-icon fas fa-comment-dots"></i>
               <p>
                 Keranjang

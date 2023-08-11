@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CustomerOrderController;
-use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\PesananPelangganController;
+use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\MejaController;
-use App\Http\Controllers\KedaiKopiSuperController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\KeranjangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,12 +43,12 @@ Route::group(['prefix'=>'category'],function (){
     Route::post('/update',[CategoryController::class,'update'])->name('category.update');
     Route::delete('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 });
-Route::group(['prefix'=>'customer-order'],function (){
-    Route::get('/',[CustomerOrderController::class, 'index'])->name('customer-order.index');
-    Route::get('/edit/{id}',[CustomerOrderController::class, 'edit'])->name('customer-order.edit');
-    Route::post('/update',[CustomerOrderController::class,'update'])->name('customer-order.update');
+Route::group(['prefix'=>'pesanan-pelanggan'],function (){
+    Route::get('/',[PesananPelangganController::class, 'index'])->name('pesanan-pelanggan.index');
+    Route::get('/edit/{id}',[PesananPelangganController::class, 'edit'])->name('pesanan-pelanggan.edit');
+    Route::post('/update',[PesananPelangganController::class,'update'])->name('pesanan-pelanggan.update');
 });
-Route::get('/sales-report',[SalesReportController::class, 'index'])->name('sales-report.index');
+Route::get('/laporan-penjualan',[LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
 Route::group(['prefix'=>'cashier'],function (){
     Route::get('/',[CashierController::class, 'index'])->name('cashier.index');
     Route::post('/store',[CashierController::class,'store'])->name('cashier.store');
@@ -64,10 +64,15 @@ Route::group(['prefix'=>'meja'],function (){
     Route::delete('/delete/{id}',[MejaController::class,'delete'])->name('meja.delete');
     Route::post('/printQR',[MejaController::class, 'printQR'])->name('meja.printQR');
 });
-Route::group(['prefix'=>'kedai-kopi-super'],function (){
-    Route::get('/',[KedaiKopiSuperController::class, 'index'])->name('kedai-kopi-super.index');
+Route::group(['prefix'=>'order'],function (){
+    Route::get('/',[OrderController::class, 'index'])->name('order.index');
+    Route::get('/category/{category}',[OrderController::class, 'category'])->name('order.category');
 });
-Route::get('/order',[OrderController::class, 'index'])->name('order.index');
+Route::group(['prefix'=>'keranjang'],function (){
+    Route::get('/',[KeranjangController::class, 'index'])->name('keranjang.index');
+    Route::post('/store',[KeranjangController::class,'store'])->name('keranjang.store');
+});
+
 
 
 Auth::routes();

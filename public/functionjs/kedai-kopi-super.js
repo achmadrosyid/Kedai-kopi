@@ -5,16 +5,15 @@ $(document).ready(function () {
 });
 
 
-function category() {
-    const selectedCategory = document.getElementById("category-dropdown").value;
-    let url = "";
-  
-    if (selectedCategory === "kategori1") {
-      url = "kategori1.html";
-    } 
-  
-    if (url) {
-      window.location.href = url;
-    }
-  }
-  
+
+$('#category-filter').change(function() {
+  console.log();
+  let category = $(this).val();
+  var url = "{{ route('user.edit', :category) }}";
+  url = url.replace(':category', category);
+	location.href = url;
+  // console.log(category);
+  //   // window.location.href = "/category/" + category;
+  //   window.location.href = "{{ route('kedai-kopi-super.category', ':category')}}";
+ 
+});

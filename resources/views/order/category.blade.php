@@ -18,12 +18,6 @@
                   <h3 class="card-title">Produk </h3>
               </div>
               <div class="form-group" id="id_category">
-                  <select name="tipe" id="tipe_categoryEdit" class="form-control select2" style="width: 30%;"> 
-                      @foreach ($category as $val)
-                          <option value="{{ $val->id }}">{{ $val->nama }}
-                            <a href=""></a></option>
-                      @endforeach
-                  </select>
                 <div class="card-body">
                   <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9">
                     <div class="row ">
@@ -55,5 +49,5 @@
     <script src="{{ asset('AdminLTE/plugins/toastr/toastr.min.js') }}"></script>
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('AdminLTE/plugins/datatables/datatables.min.js') }}"></script>
-    {{-- <script src="{{ asset('functionjs/kedai-kopi-super.js') }}"></script> --}}
+    <script src="{{ asset('functionjs/order.js') }}"></script>
 @endsection

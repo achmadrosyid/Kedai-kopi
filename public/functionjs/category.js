@@ -140,7 +140,6 @@ $(document.body).on("click", "#delete", function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (res) {
-            console.log('response after ', res)
             if (res.data.succes) {
                 toastr.success("Data berhasil dihapus!");
                 getData();
