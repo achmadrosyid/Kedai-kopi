@@ -26,7 +26,7 @@ function getData() {
             {data: 'img'},
             {data: 'category'},
             {data: 'nama'},
-            {data: 'description'},
+            {data: 'jumlah'},
             {data: 'status'},
             {data: 'harga'},
             {data: 'action', width: "20%"}

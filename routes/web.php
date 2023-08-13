@@ -45,8 +45,8 @@ Route::group(['prefix'=>'category'],function (){
 });
 Route::group(['prefix'=>'pesanan-pelanggan'],function (){
     Route::get('/',[PesananPelangganController::class, 'index'])->name('pesanan-pelanggan.index');
-    Route::get('/edit/{id}',[PesananPelangganController::class, 'edit'])->name('pesanan-pelanggan.edit');
-    Route::post('/update',[PesananPelangganController::class,'update'])->name('pesanan-pelanggan.update');
+    // Route::get('/edit/{id}',[PesananPelangganController::class, 'edit'])->name('pesanan-pelanggan.edit');
+    // Route::post('/update',[PesananPelangganController::class,'update'])->name('pesanan-pelanggan.update');
 });
 Route::get('/laporan-penjualan',[LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
 Route::group(['prefix'=>'cashier'],function (){

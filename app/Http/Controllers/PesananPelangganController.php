@@ -1,25 +1,35 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PesananPelanggan;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
 class PesananPelangganController extends Controller
 {
-    public function index(Request $request) {
-        $data = PesananPelanggan::query()
-        ->select('id_product','nama','meja')
-        ->get();
-        if ($request->ajax()){
+    public function index(Request $request)
+    {
+        $data = Product::query()
+            ->select('id', 'nama')
+            ->orderBy('id')
+            ->get();
+        if ($request->ajax()) {
             return DataTables::of($data)
-               
-                ->addColumn('action',function ($row){
-                    return
-                        '<a href="javascript:void(0)" class="btn btn-primary btn-sm" id="my-btn-pay" data-id="'.$row->id.'" ><i class="fa fa-money-bill-wave-alt"></i> Bayar</a> ';
+                ->addColumn('nama', function ($row) {
+                    return $row->achmad;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('meja', function ($row) {
+                    return $row->satu;
+                })
+                ->addColumn('action', function ($row) {
+                    return
+                        ' <a href="javascript:void(0)"  class="btn btn-primary btn-sm"  id="bayar" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Bayar</a>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
+                })
+                ->rawColumns(['id','nama','meja', 'action'])
                 ->make(true);
         }
         return view('pesanan-pelanggan.index');

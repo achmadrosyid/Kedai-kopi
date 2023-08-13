@@ -48,7 +48,7 @@
                                         </thead>
                                     </table>
                                     <div class="text-right">
-                                        <a href="/product/uploadImage" class="btn btn-primary btn-sm"><i class="ion ion-bag"></i> Bayar</a>
+                                        <a href="#" class="btn btn-primary btn-md"><i class="ion ion-bag"></i> Bayar</a>
                                     </div>
                                 </div>
                             </div>

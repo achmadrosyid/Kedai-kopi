@@ -25,18 +25,15 @@ function getData() {
             { data: "id_product" },
             { data: "nama" },
             { data: "meja" },
-            { data: "detail_product" },
-            { data: "jumlah" },
-            { data: "diskon" },
-            { data: "action", width: "10%" },
+            { data: "action", width: "20%" },
         ],
     });
 }
 
 //show modal payment
-$(document.body).on("click", "#my-btn-pay", function (e) {
-    let id = $(this).attr("data-id");
-    tempId = id;
+$(document.body).on("click", "#bayar", function (e) {
+    // let id = $(this).attr("data-id");
+    // tempId = id;
     $("#modalPay").modal("show");
 });
 
