@@ -48,7 +48,7 @@
                                         </thead>
                                     </table>
                                     <div class="text-right">
-                                        <a href="#" class="btn btn-primary btn-md"><i class="ion ion-bag"></i> Bayar</a>
+                                        <a href="#" class="btn btn-primary btn-md" id="bayar"><i class="ion ion-bag"></i> Bayar</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,6 +111,32 @@
             </div>
         </div>
 
+        <!-- pop up input nama pelanggan -->
+        <div class="modal fade" id="modalNama" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Masukkan Nama Pelanggan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" name="form">
+                            <input type="hidden" id="id">
+                            <div class="form-group">
+                                <label for="input-delete">Masukkan Nama</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Nama">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="simpan" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
 

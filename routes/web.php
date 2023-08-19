@@ -70,7 +70,7 @@ Route::group(['prefix'=>'order'],function (){
 });
 Route::group(['prefix'=>'keranjang'],function (){
     Route::get('/',[KeranjangController::class, 'index'])->name('keranjang.index');
-    Route::post('/store',[KeranjangController::class,'store'])->name('keranjang.store');
+    // Route::post('/store',[KeranjangController::class,'store'])->name('keranjang.store');
 });
 
 

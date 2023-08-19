@@ -33,3 +33,9 @@ function getData() {
         ],
     });
 }
+
+$(document.body).on("click", "#bayar", function (e) {
+    // let id = $(this).attr("data-id");
+    // tempId = id;
+    $("#modalNama").modal("show");
+});
