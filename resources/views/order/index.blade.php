@@ -21,7 +21,8 @@
                 </div>
             </div>
             <div class="form-group" id="id_category">
-                <select name="tipe" id="category-filter" class="form-control select2" style="width: 100%;">
+                <select name="tipe" id="filter-category" onchange="getData()" class="form-control select2"
+                    style="width: 100%;">
                     @foreach ($category as $val)
                         <option value="{{ $val->id }}">{{ $val->nama }}
                         </option>
@@ -29,12 +30,12 @@
                 </select>
                 <div class="card-body">
                     <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
-                        <div class="row ">
+                        <div class="row " id="product">
                             @foreach ($data as $row)
                                 <div class="col-lg-3 col-sm-6 col-xs-6">
                                     <div class="card " style="width: 12rem;">
-                                        <img class="card-img-top " src="/storage/{{ $row->img }}" style="width: 12rem;height:12rem"
-                                            alt="Card image cap">
+                                        <img class="card-img-top " src="/storage/{{ $row->img }}"
+                                            style="width: 12rem;height:12rem">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $row->harga }}</h5>
                                             <p class="card-text">{{ $row->nama }}</p>
