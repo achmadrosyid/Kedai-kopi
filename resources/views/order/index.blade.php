@@ -4,6 +4,8 @@
 @section('header-include')
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/toastr/toastr.min.css') }}">
+    <!-- Sweet alert -->
+    <link rel="stylesheet" href="{{asset('AdminLTE/plugins/sweetalert2/sweetalert2.css')}}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     {{--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m9=" crossorigin="anonymous"></script> --}}
@@ -22,7 +24,7 @@
             </div>
             <div class="form-group" id="id_category">
                 <select name="tipe" id="filter-category" onchange="getData()" class="form-control select2"
-                    style="width: 100%;">
+                        style="width: 100%;">
                     @foreach ($category as $val)
                         <option value="{{ $val->id }}">{{ $val->nama }}
                         </option>
@@ -35,11 +37,11 @@
                                 <div class="col-lg-3 col-sm-6 col-xs-6">
                                     <div class="card " style="width: 12rem;">
                                         <img class="card-img-top " src="/storage/{{ $row->img }}"
-                                            style="width: 12rem;height:12rem">
+                                             style="width: 12rem;height:12rem">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $row->harga }}</h5>
                                             <p class="card-text">{{ $row->nama }}</p>
-                                            <a href="#" class="btn btn-primary" style="width: 6rem;">Tambah</a>
+                                            <a href="#" class="btn btn-primary" style="width: 6rem;" id="addToCart" data-id="{{$row->id}}" data-name="{{$row->nama}}">Tambah</a>
 
                                         </div>
                                     </div>
@@ -56,6 +58,8 @@
 @section('script')
     <!-- Toastr -->
     <script src="{{ asset('AdminLTE/plugins/toastr/toastr.min.js') }}"></script>
+    <!-- Sweet alert -->
+    <script src="{{ asset('AdminLTE/plugins/sweetalert2/sweetalert2.js') }}"></script>
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('AdminLTE/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('functionjs/order.js') }}"></script>

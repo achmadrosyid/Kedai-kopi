@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -47,5 +48,18 @@ class OrderController extends Controller
             $product->harga = number_format($product->harga, 0, '.', ',');
         }
         return response()->json(['product' => $data]);
+    }
+
+    public function insertCart(Request $request)
+    {
+        $data = Cart::query()
+            ->create([
+                'meja' => $request->idMeja,
+                'produk' => $request->idProduct
+            ]);
+        if ($data) {
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
     }
 }

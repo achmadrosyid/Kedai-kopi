@@ -1,15 +1,18 @@
 $(document).ready(function () {
-    // getData();
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split('/');
+    var value = urlParts[urlParts.length - 1];
+    if (localStorage['meja'] == null) {
+        localStorage['meja'] = value
+    }
+    toastr.info('Anda berada pada meja ' + localStorage['meja']);
 });
+
 function getData() {
     var category = $('#filter-category').find(":selected").val();
     // alert(category);
     $.ajax({
-        url: '/order/getProduct/' + category,
-        method: 'GET',
-        success: function (data) {
-            console.log(data);
-            console.log(data['product']);
+        url: '/order/getProduct/' + category, method: 'GET', success: function (data) {
             var html = "";
             for (let i = 0; i < data['product'].length; i++) {
                 let idProduct = data['product'][i]['id'];
@@ -23,7 +26,7 @@ function getData() {
                 html += "<div class='card-body'>"
                 html += "<h5 class='card-title'>" + price + "</h5>";
                 html += "<p class='card-text'>" + name + "</p>"
-                html += "<a  class='btn btn-primary' style='width: 6rem;'>Tambah</a>"
+                html += "<a  class='btn btn-primary' style='width: 6rem;'  id='addToCart' data-id='" + idProduct + "' data-name='" + name + "'>Tambah</a>"
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";
@@ -33,3 +36,44 @@ function getData() {
         }
     })
 }
+
+const cart = [];
+$('body').on('click', '#addToCart', function () {
+    const idProduct = $(this).data('id');
+    const nameProduct = $(this).data('name')
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    // toastr.success(nameProduct + ' Berhasil Di Tambahkan');
+    $.ajax({
+        url: '/order/insertCart',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja'],
+            idProduct: idProduct,
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error('<strong><li>' + value + '</li></strong>');
+                });
+            } else {
+                if(data.success === 1){
+                    swal.fire({
+                        title: "Info",
+                        icon: 'success',
+                        text: nameProduct + " Berhasil ditambahkan ke keranjang",
+                        type: "success",
+                        timer: 3000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    })
+                }else{
+                    toastr.warning('Data Gagal Disimpan')
+                }
+            }
+        }
+    });
+})

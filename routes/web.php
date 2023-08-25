@@ -65,15 +65,15 @@ Route::group(['prefix' => 'meja'], function () {
     Route::post('/printQR', [MejaController::class, 'printQR'])->name('meja.printQR');
 });
 Route::group(['prefix' => 'order'], function () {
-    Route::get('/', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/{id?}', [OrderController::class, 'index'])->name('order.index');
     Route::get('/category/{category}', [OrderController::class, 'category'])->name('order.category');
     Route::get('/getProduct/{category}', [OrderController::class, 'getProduct'])->name('order.getProduct');
+    Route::post('/insertCart', [OrderController::class, 'insertCart'])->name('oder.insertCart');
 });
 Route::group(['prefix' => 'keranjang'], function () {
     Route::get('/', [KeranjangController::class, 'index'])->name('keranjang.index');
     // Route::post('/store',[KeranjangController::class,'store'])->name('keranjang.store');
 });
-
 
 
 Auth::routes();
