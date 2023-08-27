@@ -19,7 +19,7 @@
             <div class="card-header">
                 <h3 class="card-title">Produk </h3>
                 <div class="text-right">
-                    <a href="#" class="btn btn-primary btn-md"> Keranjang</a>
+                    <a class="btn btn-primary btn-md" id='keranjang'> Keranjang</a>
                 </div>
             </div>
             <div class="form-group" id="id_category">
@@ -39,7 +39,7 @@
                                         <img class="card-img-top " src="/storage/{{ $row->img }}"
                                              style="width: 12rem;height:12rem">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $row->harga }}</h5>
+                                            <h5 class="card-title">Rp. {{ $row->harga }}</h5>
                                             <p class="card-text">{{ $row->nama }}</p>
                                             <a href="#" class="btn btn-primary" style="width: 6rem;" id="addToCart" data-id="{{$row->id}}" data-name="{{$row->nama}}">Tambah</a>
 
@@ -52,6 +52,59 @@
                 </div>
             </div>
         </div>
+        
+        <!-- pop up keranjang -->
+        <div class="modal fade" id="modalKeranjang" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detail Pesanan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                          <table id="data-tabel" class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th style="width: 25%;">Produk</th>
+                                <th style="width: 15%;">Jumlah</th>
+                                <th style="width: 20%;">Total</th>
+                                <th style="width: 30%;">Keterangan</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Produk 1</td>
+                                <td><input type="number" class="form-control quantity" value="1"></td>
+                                <td class="total">Rp. 10.000</td>
+                                <td><button class="btn btn-danger remove">Hapus</button></td>
+                              </tr>
+                              <tr>
+                                <td>Produk 2</td>
+                                <td><input type="number" class="form-control quantity" value="1"></td>
+                                <td class="total">Rp. 15.000</td>
+                                <td><button class="btn btn-danger remove">Hapus</button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="form-group">
+                            <label for="total-keseluruhan">Total Keseluruhan</label>
+                            <h2>Rp. 25.000</h2>
+                          </div>
+                          <div class="form-group">
+                            <label for="nama">Nama Pelanggan</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Pelanggan">
+                          </div>
+                        </div>
+                      </div>                      
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="bayar" class="btn btn-primary">Bayar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

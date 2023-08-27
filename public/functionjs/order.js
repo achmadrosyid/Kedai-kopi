@@ -77,3 +77,7 @@ $('body').on('click', '#addToCart', function () {
         }
     });
 })
+// modal show keranjang
+$(document.body).on("click", "#keranjang", function (e) {
+    $("#modalKeranjang").modal("show");
+});
