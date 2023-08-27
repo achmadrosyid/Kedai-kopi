@@ -31,7 +31,7 @@ function getData() {
 }
 
 //show modal payment
-$(document.body).on("click", "#bayar", function (e) {
+$(document.body).on("click", "#detail", function (e) {
     // let id = $(this).attr("data-id");
     // tempId = id;
     $("#modalPay").modal("show");

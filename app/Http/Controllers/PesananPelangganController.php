@@ -26,7 +26,7 @@ class PesananPelangganController extends Controller
                 })
                 ->addColumn('action', function ($row) {
                     return
-                        ' <a href="javascript:void(0)"  class="btn btn-primary btn-sm"  id="bayar" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Bayar</a>
+                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="detail" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> detail</a>
                         <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
                 })
                 ->rawColumns(['id','nama','meja', 'action'])

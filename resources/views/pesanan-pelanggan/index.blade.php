@@ -42,36 +42,57 @@
         </div>
       </div>
 
-        <!-- pop up payment -->
+      <!-- pop up keranjang -->
       <div class="modal fade" id="modalPay" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Pembayaran</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              
-              <div class="modal-body">
-              <div class="form-group">                
-                <label for="input-customer">Nama Produk</label>
-                <input type="customer" class="form-control" id="nama" placeholder="Input customer">
-                <label for="input-amount">Jumlah Produk</label>
-                <input type="amount" class="form-control" id="jumlah" placeholder="Input amount">
-                <label for="input-discount">Diskon</label>
-                <input type="discount" class="form-control" id="diskon" placeholder="Input discount">
-                <label for="input-total">Total</label>
-                <input type="total" class="form-control" id="total" placeholder="Input total">
-              </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="delete">Batal</button>
-                <button type="button" class="btn btn-primary" id="bayar">Bayar</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Pesanan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                      <table id="data-tabel" class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th style="width: 25%;">Produk</th>
+                            <th style="width: 20%;">Jumlah</th>
+                            <th style="width: 15%;">Diskon</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Nasi Goreng</td>
+                            <td class="julah">1</td>
+                            <td><input type="number" class="form-control"></td>
+                          </tr>
+                          <tr>
+                            <td>Es Teh</td>
+                            <td class="julah">2</td>
+                            <td><input type="number" class="form-control"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="form-group">
+                        <label for="total-keseluruhan">Total Keseluruhan</label>
+                        <h4>Rp. 25.000</h4>
+                      </div>
+                      <div class="form-group">
+                        <label for="status"> Status</label>
+                        <h4>Berhasil</h4>
+                      </div>
+                    </div>
+                  </div>                      
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" id="bayar" class="btn btn-primary">Bayar</button>
+                </div>
             </div>
-          </div>
         </div>
+    </div>
+
   </section>
 
 @endsection
