@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    var currentURL = window.location.href;
-    var urlParts = currentURL.split('/');
-    var value = urlParts[urlParts.length - 1];
+    let currentURL = window.location.href;
+    let urlParts = currentURL.split('/');
+    let value = urlParts[urlParts.length - 1];
     if (localStorage['meja'] == null) {
         localStorage['meja'] = value
     }
@@ -9,22 +9,21 @@ $(document).ready(function () {
 });
 
 function getData() {
-    var category = $('#filter-category').find(":selected").val();
-    // alert(category);
+    let category = $('#filter-category').find(":selected").val();
     $.ajax({
         url: '/order/getProduct/' + category, method: 'GET', success: function (data) {
-            var html = "";
-            for (let i = 0; i < data['product'].length; i++) {
-                let idProduct = data['product'][i]['id'];
-                let imgSrc = '/storage/' + data['product'][i]['img'];
-                let price = data['product'][i]['harga'];
-                let name = data['product'][i]['nama']
+            let html = "";
+            for (const element of data['product']) {
+                let idProduct = element['id'];
+                let imgSrc = '/storage/' + element['img'];
+                let price = element['harga'];
+                let name = element['nama']
 
                 html += "<div class='col-lg-3 col-sm-6 col-xs-6'>";
                 html += "<div class='card' style='width: 12rem;'>";
                 html += "<img class='card-img-top' src='" + imgSrc + "' style='width: 12rem; height: 12rem;'>";
                 html += "<div class='card-body'>"
-                html += "<h5 class='card-title'>" + price + "</h5>";
+                html += "<h5 class='card-title'>" + 'Rp.' + price + "</h5>";
                 html += "<p class='card-text'>" + name + "</p>"
                 html += "<a  class='btn btn-primary' style='width: 6rem;'  id='addToCart' data-id='" + idProduct + "' data-name='" + name + "'>Tambah</a>"
                 html += "</div>";
@@ -46,7 +45,6 @@ $('body').on('click', '#addToCart', function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    // toastr.success(nameProduct + ' Berhasil Di Tambahkan');
     $.ajax({
         url: '/order/insertCart',
         method: 'POST',
@@ -60,7 +58,7 @@ $('body').on('click', '#addToCart', function () {
                     toastr.error('<strong><li>' + value + '</li></strong>');
                 });
             } else {
-                if(data.success === 1){
+                if (data.success === 1) {
                     swal.fire({
                         title: "Info",
                         icon: 'success',
@@ -70,7 +68,7 @@ $('body').on('click', '#addToCart', function () {
                         showCancelButton: false,
                         showConfirmButton: false
                     })
-                }else{
+                } else {
                     toastr.warning('Data Gagal Disimpan')
                 }
             }
@@ -79,5 +77,38 @@ $('body').on('click', '#addToCart', function () {
 })
 // modal show keranjang
 $(document.body).on("click", "#keranjang", function (e) {
-    $("#modalKeranjang").modal("show");
+    e.preventDefault();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: '/order/getDataCart',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja']
+        },
+        success: function (data) {
+            localStorage.setItem('cart', JSON.stringify(data['cart']));
+            localStorage.setItem('total',data['total']);
+            $('#totalHarga').text('Rp.'+data['total']);
+            let html = "";
+            for (let i = 0; i < data['cart'].length; i++) {
+                let idProduct = data['cart'][i]['id'];
+                html += "<tr>";
+                html += "<td>" + (i + 1) + "</td>";
+                html += "<td>" + data['cart'][i]['nama'] + "</td>";
+                html += "<td>" + data['cart'][i]['total_qty'] + "</td>";
+                html += "<td>" + 'Rp.' + data['cart'][i]['total_harga'] + "</td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-success' id='addItem' data-id='" + idProduct + "'><i class='fa fa-plus'></i></a></td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-danger' id='decreaseItem' data-id='" + idProduct + "'><i class='fa fa-minus'></i></a></td>";
+                html += "</tr>";
+            }
+            document.getElementById('tableCart').innerHTML = "";
+            document.getElementById('tableCart').innerHTML = html;
+            $("#modalKeranjang").modal("show");
+        },
+    });
+
 });

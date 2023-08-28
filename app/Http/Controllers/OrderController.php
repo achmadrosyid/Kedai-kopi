@@ -6,6 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
@@ -24,17 +25,6 @@ class OrderController extends Controller
             ->select('id', 'nama')
             ->get();
         return view('order.index', compact('data', 'category'));
-    }
-
-    public function category($category)
-    {
-
-        $category = Category::query()
-            ->select('id', 'nama')
-            ->get();
-        // Lakukan pengolahan sesuai kategori yang dipilih
-        // Contoh: mengembalikan tampilan berdasarkan kategori
-        return view('category', ['category' => $category]);
     }
 
     public function getProduct($category)
@@ -61,5 +51,31 @@ class OrderController extends Controller
             return response()->json(['success' => 1]);
         }
         return response()->json(['success' => 0]);
+    }
+    public function getDataCart(Request $request)
+    {
+        $data = Cart::query()
+            ->leftJoin('product as p', 'p.id', '=', 'cart.produk')
+            ->where('meja', $request->idMeja)
+            ->select(
+                'p.id',
+                'p.nama',
+                'p.harga',
+                DB::raw('COUNT(cart.produk) as total_qty')
+            )
+            ->groupBy('p.id', 'p.nama', 'p.harga')
+            ->get();
+
+        $totalKeseluruhanHarga = 0;
+
+        foreach ($data as $cart) {
+            $cart->total_harga = number_format($cart->total_qty * $cart->harga, 0, '.', ',');
+            $totalKeseluruhanHarga += $cart->total_qty * $cart->harga;
+        }
+
+        $totalKeseluruhanHargaFormatted = number_format($totalKeseluruhanHarga, 0, '.', ',');
+
+
+        return response()->json(['cart' => $data,'total'=>$totalKeseluruhanHargaFormatted]);
     }
 }

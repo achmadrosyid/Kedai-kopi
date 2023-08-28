@@ -68,7 +68,8 @@ Route::group(['prefix' => 'order'], function () {
     Route::get('/{id?}', [OrderController::class, 'index'])->name('order.index');
     Route::get('/category/{category}', [OrderController::class, 'category'])->name('order.category');
     Route::get('/getProduct/{category}', [OrderController::class, 'getProduct'])->name('order.getProduct');
-    Route::post('/insertCart', [OrderController::class, 'insertCart'])->name('oder.insertCart');
+    Route::post('/insertCart', [OrderController::class, 'insertCart'])->name('order.insertCart');
+    Route::post('/getDataCart',[OrderController::class,'getDataCart'])->name('order.getDataCart');
 });
 Route::group(['prefix' => 'keranjang'], function () {
     Route::get('/', [KeranjangController::class, 'index'])->name('keranjang.index');

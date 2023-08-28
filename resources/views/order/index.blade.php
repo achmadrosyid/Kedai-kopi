@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- pop up keranjang -->
         <div class="modal fade" id="modalKeranjang" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
@@ -64,41 +64,30 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="table-responsive">
+                        <div class="table table-responsive">
                           <table id="data-tabel" class="table table-bordered">
                             <thead>
                               <tr>
+                                <th style="width: 5%;">No</th>
                                 <th style="width: 25%;">Produk</th>
-                                <th style="width: 15%;">Jumlah</th>
+                                <th style="width: 5%;">Jumlah</th>
                                 <th style="width: 20%;">Total</th>
-                                <th style="width: 30%;">Keterangan</th>
+                                <th style="width: 10%;" colspan="2" class="tex-center">Opsi</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>Produk 1</td>
-                                <td><input type="number" class="form-control quantity" value="1"></td>
-                                <td class="total">Rp. 10.000</td>
-                                <td><button class="btn btn-danger remove">Hapus</button></td>
-                              </tr>
-                              <tr>
-                                <td>Produk 2</td>
-                                <td><input type="number" class="form-control quantity" value="1"></td>
-                                <td class="total">Rp. 15.000</td>
-                                <td><button class="btn btn-danger remove">Hapus</button></td>
-                              </tr>
+                            <tbody id="tableCart">
                             </tbody>
                           </table>
                           <div class="form-group">
                             <label for="total-keseluruhan">Total Keseluruhan</label>
-                            <h2>Rp. 25.000</h2>
+                            <h2 id="totalHarga"></h2>
                           </div>
                           <div class="form-group">
                             <label for="nama">Nama Pelanggan</label>
                             <input type="text" class="form-control" id="nama" placeholder="Nama Pelanggan">
                           </div>
                         </div>
-                      </div>                      
+                      </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="button" id="bayar" class="btn btn-primary">Bayar</button>
