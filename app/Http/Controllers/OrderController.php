@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use Carbon\AbstractTranslator;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -52,6 +53,7 @@ class OrderController extends Controller
         }
         return response()->json(['success' => 0]);
     }
+
     public function getDataCart(Request $request)
     {
         $data = Cart::query()
@@ -76,6 +78,24 @@ class OrderController extends Controller
         $totalKeseluruhanHargaFormatted = number_format($totalKeseluruhanHarga, 0, '.', ',');
 
 
-        return response()->json(['cart' => $data,'total'=>$totalKeseluruhanHargaFormatted]);
+        return response()->json(['cart' => $data, 'total' => $totalKeseluruhanHargaFormatted]);
+    }
+
+    public function removeItemFromCart(Request $request)
+    {
+
+        $item = Cart::query()
+            ->where('meja', $request->idMeja)
+            ->where('produk', $request->idProduct)
+            ->select('id')
+            ->first();
+        $data = Cart::query()
+            ->where('id', $item->id)
+            ->delete();
+        if ($data) {
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
+
     }
 }

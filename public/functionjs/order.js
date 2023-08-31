@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#loadingIcon").hide();
     let currentURL = window.location.href;
     let urlParts = currentURL.split('/');
     let value = urlParts[urlParts.length - 1];
@@ -91,18 +92,19 @@ $(document.body).on("click", "#keranjang", function (e) {
         },
         success: function (data) {
             localStorage.setItem('cart', JSON.stringify(data['cart']));
-            localStorage.setItem('total',data['total']);
-            $('#totalHarga').text('Rp.'+data['total']);
+            localStorage.setItem('total', data['total']);
+            $('#totalHarga').text('Rp.' + data['total']);
             let html = "";
             for (let i = 0; i < data['cart'].length; i++) {
                 let idProduct = data['cart'][i]['id'];
+                let nameProduct = data['cart'][i]['nama'];
                 html += "<tr>";
                 html += "<td>" + (i + 1) + "</td>";
                 html += "<td>" + data['cart'][i]['nama'] + "</td>";
                 html += "<td>" + data['cart'][i]['total_qty'] + "</td>";
                 html += "<td>" + 'Rp.' + data['cart'][i]['total_harga'] + "</td>";
-                html += "<td><a href='javascript:void(0)' class='btn btn-success' id='addItem' data-id='" + idProduct + "'><i class='fa fa-plus'></i></a></td>";
-                html += "<td><a href='javascript:void(0)' class='btn btn-danger' id='decreaseItem' data-id='" + idProduct + "'><i class='fa fa-minus'></i></a></td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-success' id='addItem' data-id='" + idProduct + "' data-name='" + nameProduct + "'><i class='fa fa-plus'></i></a></td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-danger' id='removeItem' data-id='" + idProduct + "' data-name='" + nameProduct + "'><i class='fa fa-minus'></i></a></td>";
                 html += "</tr>";
             }
             document.getElementById('tableCart').innerHTML = "";
@@ -112,3 +114,115 @@ $(document.body).on("click", "#keranjang", function (e) {
     });
 
 });
+
+$(document.body).on("click", "#addItem", function () {
+    const idProduct = $(this).data('id');
+    const nameProduct = $(this).data('name')
+    $('#loadingIcon').show()
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: '/order/insertCart',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja'],
+            idProduct: idProduct,
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error('<strong><li>' + value + '</li></strong>');
+                });
+            } else {
+                if (data.success === 1) {
+                    getDataUpdateCart()
+                    swal.fire({
+                        title: "Info",
+                        icon: 'success',
+                        text: nameProduct + " Berhasil ditambahkan ke keranjang",
+                        type: "success",
+                        timer: 3000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    })
+                    $('#loadingIcon').hide()
+                } else {
+                    toastr.warning('Data Gagal Disimpan')
+                }
+            }
+        }
+    });
+});
+$(document.body).on("click", "#removeItem", function () {
+    const idProduct = $(this).data('id');
+    const nameProduct = $(this).data('name')
+    $('#loadingIcon').show()
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: '/order/removeItemFromCart',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja'],
+            idProduct: idProduct,
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error('<strong><li>' + value + '</li></strong>');
+                });
+            } else {
+                if (data.success === 1) {
+                    getDataUpdateCart()
+                    swal.fire({
+                        title: "Info",
+                        icon: 'success',
+                        text: nameProduct + " Berhasil dikeluarkan dari keranjang",
+                        type: "success",
+                        timer: 3000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    })
+                    $('#loadingIcon').hide()
+                } else {
+                    toastr.warning('Data Gagal Disimpan')
+                }
+            }
+        }
+    });
+});
+function getDataUpdateCart() {
+    $.ajax({
+        url: '/order/getDataCart',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja']
+        },
+        success: function (data) {
+            localStorage.setItem('cart', JSON.stringify(data['cart']));
+            localStorage.setItem('total', data['total']);
+            $('#totalHarga').text('Rp.' + data['total']);
+            let html = "";
+            for (let i = 0; i < data['cart'].length; i++) {
+                let idProduct = data['cart'][i]['id'];
+                let nameProduct = data['cart'][i]['nama'];
+                html += "<tr>";
+                html += "<td>" + (i + 1) + "</td>";
+                html += "<td>" + data['cart'][i]['nama'] + "</td>";
+                html += "<td>" + data['cart'][i]['total_qty'] + "</td>";
+                html += "<td>" + 'Rp.' + data['cart'][i]['total_harga'] + "</td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-success' id='addItem' data-id='" + idProduct + "' data-name='" + nameProduct + "'><i class='fa fa-plus'></i></a></td>";
+                html += "<td><a href='javascript:void(0)' class='btn btn-danger' id='removeItem' data-id='" + idProduct + "' data-name='" + nameProduct + "'><i class='fa fa-minus'></i></a></td>";
+                html += "</tr>";
+            }
+            document.getElementById('tableCart').innerHTML = "";
+            document.getElementById('tableCart').innerHTML = html;
+        },
+    });
+}
