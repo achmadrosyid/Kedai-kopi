@@ -71,6 +71,7 @@ Route::group(['prefix' => 'order'], function () {
     Route::post('/insertCart', [OrderController::class, 'insertCart'])->name('order.insertCart');
     Route::post('/getDataCart', [OrderController::class, 'getDataCart'])->name('order.getDataCart');
     Route::post('/removeItemFromCart', [OrderController::class, 'removeItemFromCart'])->name('order.removeItemFromCart');
+    Route::post('/purchase', [OrderController::class, 'purchase'])->name('order.purchase');
 });
 Route::group(['prefix' => 'keranjang'], function () {
     Route::get('/', [KeranjangController::class, 'index'])->name('keranjang.index');

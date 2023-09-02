@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use Carbon\AbstractTranslator;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderDetil;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Yajra\DataTables\DataTables;
 
 class OrderController extends Controller
 {
@@ -96,6 +97,51 @@ class OrderController extends Controller
             return response()->json(['success' => 1]);
         }
         return response()->json(['success' => 0]);
+    }
+    public function purchase(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required']
+        ], ['name.required' => 'Mohon Inputkan Nama Anda']);
 
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $dateNow = Carbon::now();
+        $dateNow = $dateNow->toDateString();
+        $dateFinal = str_replace('-', '', $dateNow);
+        $countOrderToday = Order::query()
+            ->where('tanggal', $dateFinal)
+            ->count();
+        $numberOrder = 'ORD' . $dateFinal . str_pad($countOrderToday, 4, '0', STR_PAD_LEFT);
+        $total = intval(str_replace(",", "", $request->total));
+        $order = Order::create([
+            'no_order' => $numberOrder,
+            'tanggal' => $dateNow,
+            'id_meja' => $request->idMeja,
+            'nama_pelanggan' => $request->name,
+            'jumlah_harga' => $total,
+            'diskon' => 0,
+            'total' => $total,
+            'status_dibayar' => 0,
+            'status_pesanan' => 0,
+        ]);
+        $product = json_decode($request->product);
+
+        for ($i = 0; $i < count($product); $i++) {
+            OrderDetil::create([
+                'id_order' => 2,
+                'id_product' => $product[$i]->id,
+                'jumlah' => $product[$i]->total_qty
+            ]);
+        }
+        if ($order) {
+            Cart::query()
+                ->where('meja', $request->idMeja)
+                ->delete();
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
     }
 }

@@ -84,7 +84,7 @@
                           </div>
                           <div class="form-group">
                             <label for="nama">Nama Pelanggan</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama Pelanggan">
+                            <input type="text" class="form-control" id="name" placeholder="Nama Pelanggan">
                           </div>
                         </div>
                       </div>

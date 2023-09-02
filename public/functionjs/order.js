@@ -226,3 +226,49 @@ function getDataUpdateCart() {
         },
     });
 }
+
+$(document.body).on("click", "#bayar", function () {
+    $('#loadingIcon').show()
+    let name = $('#name').val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: '/order/purchase',
+        method: 'POST',
+        data: {
+            idMeja: localStorage['meja'],
+            product: localStorage['cart'],
+            name: name,
+            total: localStorage['total']
+        },
+        success: function (data) {
+            if (data.errors) {
+                $.each(data.errors, function (key, value) {
+                    toastr.error('<strong><li>' + value + '</li></strong>');
+                });
+                $('#loadingIcon').hide()
+            } else {
+                $('#loadingIcon').hide()
+                $("#modalKeranjang").modal("hide");
+                if (data.success === 1) {
+                    localStorage.clear();
+                    localStorage.removeItem('meja');
+                    swal.fire({
+                        title: "Info",
+                        icon: 'success',
+                        text: "Pesanan Anda berhasil,Silakan lakukan pembayaran di kasir",
+                        type: "success",
+                        // timer: 3000,
+                        showCancelButton: false,
+                        showConfirmButton: true
+                    })
+                } else {
+                    toastr.warning('Data Gagal Disimpan')
+                }
+            }
+        }
+    });
+});
