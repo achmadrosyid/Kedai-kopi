@@ -83,16 +83,6 @@
               </p>
             </a>
           </li>
-        
-          <!-- keranjang -->
-          <li class="nav-item">
-          <a href="{{route('keranjang.index')}}" class="{{ request()->is('keranjang') ? 'nav-link active' : 'nav-link'}}">
-            <i class="nav-icon fas fa-comment-dots"></i>
-              <p>
-                Keranjang
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
     </div>

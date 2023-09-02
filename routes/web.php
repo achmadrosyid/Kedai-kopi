@@ -9,7 +9,7 @@ use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\KeranjangController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,10 +73,7 @@ Route::group(['prefix' => 'order'], function () {
     Route::post('/removeItemFromCart', [OrderController::class, 'removeItemFromCart'])->name('order.removeItemFromCart');
     Route::post('/purchase', [OrderController::class, 'purchase'])->name('order.purchase');
 });
-Route::group(['prefix' => 'keranjang'], function () {
-    Route::get('/', [KeranjangController::class, 'index'])->name('keranjang.index');
-    // Route::post('/store',[KeranjangController::class,'store'])->name('keranjang.store');
-});
+
 
 
 Auth::routes();
