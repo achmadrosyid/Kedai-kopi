@@ -22,7 +22,7 @@ function getData() {
             },
         },
         columns: [
-            { data: "id_product" },
+            { data: 'no', width: "5%" },
             { data: "nama" },
             { data: "meja" },
             { data: "action", width: "20%" },

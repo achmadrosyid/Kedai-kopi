@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PesananPelangganController;
 use App\Http\Controllers\LaporanPenjualanController;
 use App\Http\Controllers\CashierController;
+use App\Http\Controllers\CustomerOrder;
+use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\OrderController;
 
@@ -44,7 +46,7 @@ Route::group(['prefix' => 'category'], function () {
     Route::delete('/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 });
 Route::group(['prefix' => 'pesanan-pelanggan'], function () {
-    Route::get('/', [PesananPelangganController::class, 'index'])->name('pesanan-pelanggan.index');
+    Route::get('/', [CustomerOrderController::class, 'index'])->name('pesanan-pelanggan.index');
     // Route::get('/edit/{id}',[PesananPelangganController::class, 'edit'])->name('pesanan-pelanggan.edit');
     // Route::post('/update',[PesananPelangganController::class,'update'])->name('pesanan-pelanggan.update');
 });

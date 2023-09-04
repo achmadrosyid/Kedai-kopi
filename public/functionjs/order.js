@@ -255,7 +255,7 @@ $(document.body).on("click", "#bayar", function () {
                 $("#modalKeranjang").modal("hide");
                 if (data.success === 1) {
                     localStorage.clear();
-                    localStorage.removeItem('meja');
+                    // localStorage.removeItem('meja');
                     swal.fire({
                         title: "Info",
                         icon: 'success',
