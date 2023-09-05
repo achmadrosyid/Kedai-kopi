@@ -19,5 +19,6 @@ class Order extends Model
         'total',
         'status_dibayar',
         'status_pesanan',
+        'id_cashier',
     ];
 }

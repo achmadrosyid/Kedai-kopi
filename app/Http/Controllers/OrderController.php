@@ -126,12 +126,13 @@ class OrderController extends Controller
             'total' => $total,
             'status_dibayar' => 0,
             'status_pesanan' => 0,
+            'id_cashier' => 1
         ]);
         $product = json_decode($request->product);
 
         for ($i = 0; $i < count($product); $i++) {
             OrderDetil::create([
-                'id_order' => 2,
+                'id_order' => $order->id,
                 'id_product' => $product[$i]->id,
                 'jumlah' => $product[$i]->total_qty
             ]);
