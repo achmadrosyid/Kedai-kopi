@@ -8,21 +8,29 @@ use App\Models\Category;
 use App\Models\Order;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class CustomerOrderController extends Controller
 {
     public function index(Request $request)
     {
+        $dateNow = Carbon::now();
+        $dateNow = $dateNow->toDateString();
         $data = Order::query()
-            ->leftJoin('order_detil as od', 'od.id_order', 'order.id')
-            ->leftJoin('product as p', 'p.id', 'od.id_product')
             ->select(
                 'nama_pelanggan',
                 'id_meja as meja',
-
+                'order.id',
+                'status_pesanan',
+                'status_dibayar'
             )
             ->groupBy('order.id')
+            ->orderBY('status_dibayar', 'DESC')
+            ->orderBy('status_pesanan')
+            // ->where('tanggal',$dateNow)
             ->get();
+        // dd($data);
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addColumn('nama', function ($row) {
@@ -31,14 +39,86 @@ class CustomerOrderController extends Controller
                 ->addColumn('meja', function ($row) {
                     return $row->meja;
                 })
+                ->addColumn('status_pesanan', function ($row) {
+                    if ($row->status_pesanan == 0) {
+                        return '<span class="badge badge-danger">' . "Belum Diantar" . '</span>';
+                    } else {
+                        return '<span class="badge badge-success">' . "Sudah Diantar" . '</span>';
+                    }
+                })
+                ->addColumn('status_pembayaran', function ($row) {
+                    if ($row->status_dibayar == 0) {
+                        return '<span class="badge badge-warning">' . "Belum Dibayar" . '</span>';
+                    } else {
+                        return '<span class="badge badge-success">' . "Sudah Dibayar" . '</span>';
+                    }
+                })
                 ->addColumn('action', function ($row) {
                     return
-                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="detail" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> detail</a>
-                        <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
+                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="detail" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-eye"></i> Detail Pesanan</a>
+                        ';
                 })
-                ->rawColumns(['id', 'nama', 'meja', 'action'])
+                ->rawColumns(['id', 'nama', 'meja', 'status_pesanan', 'status_pembayaran', 'action'])
                 ->make(true);
         }
         return view('pesanan-pelanggan.index');
+    }
+    public function getDetilOrder($id)
+    {
+        $order = Order::query()
+            ->leftJoin('order_detil as od', 'od.id_order', 'order.id')
+            ->leftJoin('product as p', 'p.id', 'od.id_product')
+            ->select(
+                'p.nama',
+                'od.jumlah'
+            )
+            ->where('order.id', $id)
+            ->get();
+        $total = Order::query()
+            ->select('total')
+            ->where('id', $id)
+            ->first();
+        $total = number_format($total->total, 0, ',', '.');
+        $totalINT =  Order::query()
+            ->select('total')
+            ->where('id', $id)
+            ->first();
+        $statusBayar = Order::query()
+            ->select('status_dibayar')
+            ->where('id', $id)
+            ->first();
+        $statusPesanan = Order::query()
+            ->select('status_pesanan')
+            ->where('id', $id)
+            ->first();
+        return response()->json([
+            'order' => $order,
+            'total' => $total,
+            'totalINT' => $totalINT->total,
+            'statusBayar' => $statusBayar->status_dibayar,
+            'statusPesanan' => $statusPesanan->status_pesanan,
+            'id' => $id,
+        ]);
+    }
+    public function purchase(Request $request)
+    {
+        $getTotalPrice = Order::query()
+            ->where('id', $request->idOrder)
+            ->select('jumlah_harga')
+            ->first();
+        $diskon = $getTotalPrice->jumlah_harga - $request->totalPayment;
+        $idCashier = Auth::user()->id_cashier;
+        $purchase = Order::query()
+            ->where('id', $request->idOrder)
+            ->update([
+                'diskon' => $diskon,
+                'total' => $request->totalPayment,
+                'status_dibayar' => 1,
+                'id_cashier' => $idCashier
+            ]);
+        if ($purchase) {
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
     }
 }
