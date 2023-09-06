@@ -11,7 +11,7 @@ use App\Http\Controllers\CustomerOrder;
 use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +67,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/update', [MejaController::class, 'update'])->name('meja.update');
         Route::delete('/delete/{id}', [MejaController::class, 'delete'])->name('meja.delete');
         Route::post('/printQR', [MejaController::class, 'printQR'])->name('meja.printQR');
+    });
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.index');
     });
 });
 Route::group(['prefix' => 'order'], function () {

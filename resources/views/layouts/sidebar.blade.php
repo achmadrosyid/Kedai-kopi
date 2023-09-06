@@ -83,6 +83,15 @@
               </p>
             </a>
           </li>
+          <!-- order -->
+          <li class="nav-item">
+            <a href="{{route('user.index')}}" class="{{ request()->is('user') ? 'nav-link active' : 'nav-link'}}">
+                  <i class="nav-icon fas fa-user"></i>
+                <p>
+                  User
+                </p>
+              </a>
+            </li>
         </ul>
       </nav>
     </div>
