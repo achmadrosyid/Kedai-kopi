@@ -39,7 +39,7 @@ $(document.body).on("click", "#detail", function (e) {
     let id = $(this).attr("data-id");
     $.ajax({
         url: '/pesanan-pelanggan/getDetil/' + id,
-        method: 'GET',
+        type: 'GET',
         success: function (data) {
             localStorage.setItem('totalOrder', data['totalINT']);
             $('#idOrder').val(data['id']);
@@ -60,6 +60,10 @@ $(document.body).on("click", "#detail", function (e) {
                 $('#bayar').hide();
                 $('#antar').show();
                 $("input").prop('disabled', true);
+            } else {
+                $('#bayar').show();
+                $('#antar').hide();
+                $("input").prop('disabled', false);
             }
             if (data['statusPesanan'] == 1) {
                 $('#antar').hide();
@@ -92,7 +96,7 @@ $(document.body).on("click", "#bayar", function (e) {
     });
     $.ajax({
         url: '/pesanan-pelanggan/purchase/',
-        method: 'POST',
+        type: 'POST',
         data: {
             totalPayment: totalPayment,
             idOrder: idOrder,
@@ -108,7 +112,7 @@ $(document.body).on("click", "#bayar", function (e) {
                     localStorage.clear();
                     getData();
                     swal.fire({
-                        title: "Info",
+                        title: "Success",
                         icon: 'success',
                         text: "Pembayaran Berhasil",
                         type: "success",
@@ -123,3 +127,38 @@ $(document.body).on("click", "#bayar", function (e) {
         }
     })
 });
+
+$(document.body).on("click", "#antar", function (e) {
+    e.preventDefault();
+    const idOrder = $('#idOrder').val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: '/pesanan-pelanggan/deliverOrder/',
+        type: 'POST',
+        data: {
+            idOrder: idOrder
+        },
+        success: function (data) {
+            if (data.success === 1) {
+                $("#modalPay").modal("hide");
+                localStorage.clear();
+                getData();
+                swal.fire({
+                    title: "Success",
+                    icon: 'success',
+                    text: "Pesanan Diantar",
+                    type: "success",
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                })
+            } else {
+                toastr.warning('Data Gagal Disimpan')
+            }
+        }
+    });
+})

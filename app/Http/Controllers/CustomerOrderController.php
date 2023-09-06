@@ -121,4 +121,16 @@ class CustomerOrderController extends Controller
         }
         return response()->json(['success' => 0]);
     }
+    public function deliverOrder(Request $request)
+    {
+        $deliver = Order::query()
+            ->where('id', $request->idOrder)
+            ->update([
+                'status_pesanan' => 1,
+            ]);
+        if ($deliver) {
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
+    }
 }

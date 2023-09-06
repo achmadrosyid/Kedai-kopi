@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', [CustomerOrderController::class, 'index'])->name('pesanan-pelanggan.index');
         Route::get('/getDetil/{id}', [CustomerOrderController::class, 'getDetilOrder'])->name('pesanan-pelanggan.getDetil');
         Route::post('/purchase', [CustomerOrderController::class, 'purchase'])->name('pesanan-pelanggan.purchase');
+        Route::post('/deliverOrder', [CustomerOrderController::class, 'deliverOrder'])->name('pesanan-pelanggan.deliverOrder');
     });
     Route::get('/laporan-penjualan', [LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
     Route::group(['prefix' => 'cashier'], function () {
