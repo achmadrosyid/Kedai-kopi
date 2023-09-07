@@ -4,6 +4,7 @@ $(document).ready(function () {
     getData();
     $('#antar').hide();
     $("input").prop('disabled', false);
+    // setInterval(getData, 3000);
 });
 
 function getData() {
