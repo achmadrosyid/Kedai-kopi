@@ -12,6 +12,7 @@ use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', [UserController::class, 'index'])->name('user.index');
         Route::get('/getCashier', [UserController::class, 'getCashier'])->name('user.getCashierPegawai');
         Route::post('/store', [UserController::class, 'store'])->name('user.store');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::post('/update', [UserController::class, 'update'])->name('user.update');
     });
 });
 Route::group(['prefix' => 'order'], function () {

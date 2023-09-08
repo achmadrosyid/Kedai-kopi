@@ -71,7 +71,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Kategori</h5>
+                        <h5 class="modal-title">Tambah User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -110,6 +110,55 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="button" id="simpan" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- pop up tambah kategori -->
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" name="form">
+                            <input type="hidden" id="idEdit">
+                            <input type="hidden" id="cashier_id">
+                            <div class="form-group">
+                                <label for="input-category">Nama</label>
+                                <input type="text" class="form-control" id="nameEdit" placeholder="Input Nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="input-category">Email</label>
+                                <input type="text" class="form-control" id="emailEdit" placeholder="Input Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Pegawai Kasir</label>
+                                <select name="employee" id="employeeEdit" class="form-control"></select>
+                            </div>
+                            <div class="form-group Roles">
+                                <label for="input-category">Roles</label>
+                                <select name="tipe" id="rolesEdit" class="form-control" style="width: 100%;">
+                                    <option value="cashier">Cashier</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="owner">Owner</option>
+                                </select>
+                                <div class="invalid-feedback"> Example invalid custom select feedback
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-category">Password</label>
+                                <input type="password" class="form-control" id="passwordEdit" placeholder="Input Password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" id="simpanEdit" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
             </div>
