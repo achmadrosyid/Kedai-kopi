@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', [UserController::class, 'index'])->name('user.index');
         Route::get('/getCashier', [UserController::class, 'getCashier'])->name('user.getCashierPegawai');
         Route::post('/store', [UserController::class, 'store'])->name('user.store');
+        Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+        Route::get('/search', [UserController::class, 'search'])->name('user.search');
     });
 });
 Route::group(['prefix' => 'order'], function () {

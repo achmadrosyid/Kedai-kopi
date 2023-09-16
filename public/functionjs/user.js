@@ -89,9 +89,41 @@ $('#simpan').click(function (e) {
                     $('#form').trigger("reset");
                     toastr.success('Data Berhasil Di Simpan');
                 } else {
-                    toastr.warning('Data Gagal Disimpan')
+                    toastr.warning('Data Gagal Disimpan');
                 }
             }
         }
     });
 })
+
+$(document.body).on("click", "#my-btn-delete", function (e) {
+    let id = $(this).attr("data-id");
+    $('#id').val(id);
+    $('#modalDelete').modal("show");
+})
+
+$(document.body).on("click", "#delete", function (e) {
+    var id = $("#id").val();
+    e.preventDefault();
+    $.ajax({
+        url: "/user/delete/" + id,
+        method: "DELETE",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (data) {
+            if (data.success === 1) {
+                toastr.success("Data berhasil dihapus!");
+                getData();
+                $("#modalDelete").modal("hide");
+            } else {
+                toastr.warning('Data Gagal Disimpan')
+            }
+        },
+    });
+})
+
+function filter() {
+    const name = $('#filterName').val();
+    const email = $('#filterEmail').val();
+}

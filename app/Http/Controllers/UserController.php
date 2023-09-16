@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Ui\Presets\React;
 use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = User::query()
-            ->select('name', 'roles')
+            ->select('name', 'roles', 'id')
             ->get();
         if ($request->ajax()) {
             return DataTables::of($data)
@@ -71,5 +72,26 @@ class UserController extends Controller
             return response()->json(['success' => 1]);
         }
         return response()->json(['success' => 0]);
+    }
+
+    public function delete($id)
+    {
+        $user = User::query()
+            ->findOrFail($id)
+            ->delete();
+        if ($user) {
+            return response()->json(['success' => 1]);
+        } else {
+            return response()->json(['success' => 0]);
+        }
+    }
+
+    public function search(Request $request)
+    {
+        $clause = [
+            'name' => $request['name'],
+            'email' => $request['email'],
+        ];
+        dd($request);
     }
 }

@@ -29,6 +29,29 @@
                         <h3 class="card-title">Kategori</h3>
                     </div>
                     <div class="card-body">
+                        <div class="col-xs-12">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="filterName">Email</label>
+                                            <input type="text" class="form-control" id="filterName" name="filterName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="filterMail">Name</label>
+                                            <input type="text" class="form-control" id="filterMail" name="filterMail">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="box-footer">
+                                <button class="btn btn-success" onclick="filter()"><i class="fas fa-filter"></i>
+                                    filter</button>
+                            </div>
+                        </div>
+                        <hr>
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap9 table-responsive">
                             <div class="row">
                                 <div class="col-sm-12">
