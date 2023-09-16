@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Ui\Presets\React;
 use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
@@ -73,6 +72,51 @@ class UserController extends Controller
         }
         return response()->json(['success' => 0]);
     }
+
+    public function edit($id)
+    {
+        $data = User::query()
+            ->select(
+                'name',
+                'id',
+                'email',
+                'roles',
+                'id_cashier'
+            )
+            ->where('id', $id)
+            ->first();
+        return response()->json(['data' => $data]);
+    }
+
+    public function update(Request $request)
+    {
+        if ($request->password == null) {
+            $user = User::query()
+                ->find($request->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->id_cashier = $request->cashier;
+            $user->roles = $request->roles;
+            $user->save();
+            if ($user) {
+                return response()->json(['success' => 1]);
+            }
+            return response()->json(['success' => 0]);
+        }
+        $user = User::query()
+            ->find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->id_cashier = $request->cashier;
+        $user->roles = $request->roles;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        if ($user) {
+            return response()->json(['success' => 1]);
+        }
+        return response()->json(['success' => 0]);
+    }
+}
 
     public function delete($id)
     {
