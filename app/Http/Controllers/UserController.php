@@ -116,7 +116,6 @@ class UserController extends Controller
         }
         return response()->json(['success' => 0]);
     }
-}
 
     public function delete($id)
     {
