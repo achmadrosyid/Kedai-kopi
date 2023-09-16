@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = User::query()
-            ->select('name', 'roles', 'id')
+            ->select('name', 'roles', 'id','email')
             ->get();
         if ($request->ajax()) {
             return DataTables::of($data)
@@ -29,7 +29,7 @@ class UserController extends Controller
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
                         <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
                 })
-                ->rawColumns(['name', 'roles', 'action'])
+                ->rawColumns(['name', 'roles','email', 'action'])
                 ->make(true);
         }
         return view('user.index');
@@ -135,6 +135,40 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
         ];
-        dd($request);
+        $data = $this->doSearch($clause);
+        // dd($data);
+        return DataTables::of($data)
+            ->addColumn('name', function ($row) {
+                return $row->name;
+            })
+            ->addColumn('roles', function ($row) {
+                return $row->roles;
+            })
+            ->addColumn('email', function ($row) {
+                return $row->email;
+            })
+            ->addColumn('action', function ($row) {
+                return
+                    ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
+                <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
+            })
+            ->rawColumns(['name', 'roles','email', 'action'])
+            ->make(true);
+    }
+
+    private function doSearch($clauses)
+    {
+        $data = User::query()
+            ->select('name', 'roles', 'id','email');
+        $fields = array_keys($clauses);
+        $index = 0;
+        foreach ($clauses as $item) {
+            if ($item != null) {
+                $data = $data->where($fields[$index], 'LIKE', '%' . $item . '%');
+            }
+            $index++;
+        }
+        $result = $data->get();
+        return $result;
     }
 }

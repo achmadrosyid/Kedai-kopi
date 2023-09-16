@@ -24,6 +24,7 @@ function getData() {
             { data: 'no', width: "5%" },
             { data: 'name' },
             { data: 'roles' },
+            { data: 'email' },
             { data: 'action', width: "20%" }
         ],
     });
@@ -125,7 +126,37 @@ $(document.body).on("click", "#delete", function (e) {
 
 function filter() {
     const name = $('#filterName').val();
-    const email = $('#filterEmail').val();
+    const email = $('#filterMail').val();
+    console.log(name, email);
+    $('#data-table').DataTable({
+        paging: true,
+        searching: false,
+        info: true,
+        ordering: true,
+        bDestroy: true,
+        ajax: {
+            url: '/user/search',
+            type: "GET",
+            data: {
+                name: name,
+                email: email,
+            },
+            dataSrc: function (json) {
+                json.data.forEach(function (row, index) {
+                    row.no = index + 1; // Menambahkan nomor data secara otomatis
+                });
+                return json.data;
+            }
+        },
+        columns: [
+            { data: 'no', width: "5%" },
+            { data: 'name' },
+            { data: 'roles' },
+            { data: 'email' },
+            { data: 'action', width: "20%" }
+        ],
+    });
+
 }
 
 $(document.body).on("click", "#my-btn-edit", function (e) {

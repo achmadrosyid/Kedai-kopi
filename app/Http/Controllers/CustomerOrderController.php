@@ -28,7 +28,7 @@ class CustomerOrderController extends Controller
             ->groupBy('order.id')
             ->orderBY('status_dibayar', 'DESC')
             ->orderBy('status_pesanan')
-            // ->where('tanggal',$dateNow)
+             ->where('tanggal',$dateNow)
             ->get();
         // dd($data);
         if ($request->ajax()) {

@@ -34,13 +34,13 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="filterName">Email</label>
+                                            <label for="filterName">Name</label>
                                             <input type="text" class="form-control" id="filterName" name="filterName">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="filterMail">Name</label>
+                                            <label for="filterMail">Email</label>
                                             <input type="text" class="form-control" id="filterMail" name="filterMail">
                                         </div>
                                     </div>
@@ -72,6 +72,10 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" aria-label="Browser: activate to sort column ascending">
                                                     Roles
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                    colspan="1" aria-label="Browser: activate to sort column ascending">
+                                                    Email
                                                 </th>
                                                 <th class="text-center sorting" tabindex="0" aria-controls="example1"
                                                     rowspan="1" colspan="1"
