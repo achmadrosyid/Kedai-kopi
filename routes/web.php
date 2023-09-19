@@ -52,7 +52,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/purchase', [CustomerOrderController::class, 'purchase'])->name('pesanan-pelanggan.purchase');
         Route::post('/deliverOrder', [CustomerOrderController::class, 'deliverOrder'])->name('pesanan-pelanggan.deliverOrder');
     });
-    Route::get('/laporan-penjualan', [LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
+
+    Route::group(['prefix' => 'laporan-penjualan'], function () {
+        Route::get('/', [LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
+        Route::get('/search',[LaporanPenjualanController::class,'search'])->name('laporan-penjualan.search');
+    });
     Route::group(['prefix' => 'cashier'], function () {
         Route::get('/', [CashierController::class, 'index'])->name('cashier.index');
         Route::post('/store', [CashierController::class, 'store'])->name('cashier.store');
