@@ -18,6 +18,7 @@ class LaporanPenjualanController extends Controller
                 DB::raw('SUM(total) as total'),
                 DB::raw('COUNT(*) as transaction')
             )
+            ->where('status_dibayar',1)
             ->whereMonth('tanggal', Carbon::now()->month)
             ->groupBy('tanggal')
             ->get();
@@ -72,6 +73,7 @@ class LaporanPenjualanController extends Controller
                 DB::raw('SUM(total) as total'),
                 DB::raw('COUNT(*) as transaction')
             )
+            ->where('status_dibayar',1)
             ->whereBetween('tanggal', [$clauses['tglAwal'], $clauses['tglAkhir']])
             ->groupBy('tanggal');
 

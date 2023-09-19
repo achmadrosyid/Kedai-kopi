@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $penjualan = Order::query()
             ->select(DB::raw('SUM(total) as total'))
+            ->where('status_dibayar',1)
             ->whereDate('tanggal', today())
             ->first();
         $penjualan->total = number_format($penjualan->total, 0, '.', ',');
@@ -38,6 +39,7 @@ class HomeController extends Controller
         $transaction = Order::query()
             ->select(DB::raw('LEFT (tanggal ,7) as bulan,SUM(total) as jml'))
             ->groupBy(DB::raw('LEFT(`tanggal`, 7)'))
+            ->where('status_dibayar',1)
             ->get();
         $data = [
             'data' => $transaction,
