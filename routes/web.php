@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('layouts.master');
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/getSalesPerMonth',[HomeController::class,'getSalesPerMont']);
     Route::group(['prefix' => 'product'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('product.index');
         Route::post('/store', [ProductController::class, 'store'])->name('product.store');

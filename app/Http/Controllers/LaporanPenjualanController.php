@@ -44,7 +44,7 @@ class LaporanPenjualanController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+
         $clause = [
             'tglAwal' => $request->tglAwal,
             'tglAkhir' => $request->tglAkhir
@@ -72,7 +72,7 @@ class LaporanPenjualanController extends Controller
                 DB::raw('SUM(total) as total'),
                 DB::raw('COUNT(*) as transaction')
             )
-            ->whereBetween('tanggal',[$clauses['tglAwal'],$clauses['tglAkhir']])
+            ->whereBetween('tanggal', [$clauses['tglAwal'], $clauses['tglAkhir']])
             ->groupBy('tanggal');
 
         $result = $data->get();
