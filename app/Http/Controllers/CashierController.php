@@ -11,7 +11,7 @@ class CashierController extends Controller
 {
     public function index(Request $request) {
         $data = cashier::query()
-        ->select('id','nama','email','password','nomer')
+        ->select('id','nama','email','alamat','nomer')
         ->orderBy('id')
         ->get();
         if ($request->ajax()){
@@ -22,18 +22,19 @@ class CashierController extends Controller
                 ->addColumn('email',function ($row){
                     return $row->email;
                 })
-                ->addColumn('password',function ($row){
-                    return $row->password;
+                ->addColumn('alamat',function ($row){
+                    return $row->alamat;
                 })
                 ->addColumn('nomer',function ($row){
                     return $row->nomer;
                 })
-                ->addColumn('action',function ($row){
-                    return
-                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
-                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="'.$row->id.'" ><i class="fa fa-trash"></i> Hapus</a> ';
-                })
-                ->rawColumns(['nama','email','password','nomer','action'])
+                ->addColumn('action', function ($row) {
+                    return '<div class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-success btn-sm" id="my-btn-edit" data-id="'.$row->id.'" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="'.$row->id.'"><i class="fa fa-trash"></i> Hapus</a>
+                            </div>';
+                })                
+                ->rawColumns(['nama','email','alamat','nomer','action'])
                 ->make(true);
         }
         return view('cashier.index');
@@ -55,7 +56,7 @@ class CashierController extends Controller
             ->create([
                 'nama' => $request->nama,
                 'email' => $request->email,
-                'password' => $request->password,
+                'alamat' => $request->alamat,
                 'nomer' => $request->nomer
 
             ]);
@@ -68,7 +69,7 @@ class CashierController extends Controller
 
     public function edit($id){
         $data = Cashier::query()
-          ->select ('id','nama','email','password','nomer')->where('id',$id)->first();
+          ->select ('id','nama','email','alamat','nomer')->where('id',$id)->first();
           return response()->json(['data' => $data]);
       }
 
@@ -88,7 +89,7 @@ class CashierController extends Controller
         ->update([
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => $request->password,
+            'alamat' => $request->alamat,
             'nomer' => $request->nomer
         ]);
         if ($data) {

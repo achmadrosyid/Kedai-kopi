@@ -17,7 +17,7 @@ class CreateCashiersTable extends Migration
             $table->id();
             $table->string ('nama');
             $table->string ('email');
-            $table->string('password');
+            $table->string('alamat');
             $table->string('nomer');
             $table->timestamps();
         });

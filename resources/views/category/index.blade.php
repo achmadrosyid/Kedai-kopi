@@ -51,7 +51,7 @@
                                             <th class="text-center sorting" tabindex="0" aria-controls="example1"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Browser: activate to sort column ascending"
-                                                style="width: 10%">Keterangan
+                                                style="width: 10%">Opsi
                                             </th>
                                         </tr>
                                         </thead>

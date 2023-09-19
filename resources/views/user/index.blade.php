@@ -9,7 +9,7 @@
     <input type="hidden" id="token" value="{{ csrf_token() }}">
 @endsection
 @section('content')
-    <!-- tombol tambah kategori -->
+    <!-- tombol tambah User -->
     <section class="buttom-header">
         <div class="container fluid">
             <div class="inner. col-lg-12">
@@ -19,14 +19,14 @@
         </div>
     </section>
 
-    <!-- tabel kategori -->
+    <!-- tabel User -->
     <br>
     <section class="content">
         <div class="container fluid">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Kategori</h3>
+                        <h3 class="card-title">Data User</h3>
                     </div>
                     <div class="card-body">
                         <div class="col-xs-12">
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <!-- pop up tambah kategori -->
+        <!-- pop up tambah User -->
         <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -141,7 +141,7 @@
                 </div>
             </div>
         </div>
-        <!-- pop up tambah kategori -->
+        <!-- pop up tambah User -->
         <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

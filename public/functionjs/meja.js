@@ -152,11 +152,10 @@ $(document.body).on("click", "#delete", function (e) {
 
 //on print
 $('#printQr').on("click", () => {
-    console.log('masuk on click print', $('#printQr').attr('data-id'))
-    const idTable = $('#printQr').attr('data-id')
+    const idTable = $('#printQr').attr('data-id');
     var qrCodeBaseUri = 'https://api.qrserver.com/v1/create-qr-code/?',
     params = {
-        data: `https://www.instagram.com/amad_rosyid/`,
+        data: 'kedai-kopi.test:8080/order/' + idTable, // Menggunakan idTable yang sudah didefinisikan
         size: '400x400',
         margin: 20,
         bgcolor: '#FF0000',
@@ -164,6 +163,7 @@ $('#printQr').on("click", () => {
         download: 1
     };
 
-window.location.href = qrCodeBaseUri + $.param(params);
+    window.location.href = qrCodeBaseUri + $.param(params);
 })
+
 

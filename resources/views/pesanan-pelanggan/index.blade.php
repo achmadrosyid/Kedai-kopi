@@ -27,33 +27,24 @@
                                         aria-describedby="example1_info">
                                         <thead>
                                             <tr>
-                                                <th class="text-center sorting sorting_asc" tabindex="0"
-                                                    aria-controls="example1" rowspan="1" colspan="1"
-                                                    aria-sort="ascending"
-                                                    aria-label="Rendering engine: activate to sort column descending"
-                                                    style="width: 5%">No</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
+                                                <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
+                                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Nama Pelanggan
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
+                                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Meja</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
+                                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Status Pesanan
                                                 </th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                    colspan="1"
-                                                    aria-label="CSS grade: activate to sort column ascending">Status
-                                                    Pembayaran
+                                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-label="CSS grade: activate to sort column ascending">Status Pembayaran
                                                 </th>
-                                                <th class="text-center sorting" tabindex="0" aria-controls="example1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="CSS grade: activate to sort column ascending"
-                                                    style="width: 10%">Opsi</th>
+                                                <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Opsi</th>
                                             </tr>
                                         </thead>
+                                        
                                     </table>
                                 </div>
                             </div>

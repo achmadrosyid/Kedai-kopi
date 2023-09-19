@@ -22,10 +22,12 @@ class MejaController extends Controller
                     return $row->meja;
                 })
                 ->addColumn('action', function ($row) {
-                    return
-                        ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="my-btn-edit" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
-                    <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="' . $row->id . '" ><i class="fa fa-trash"></i> Hapus</a> ';
+                    return '<div class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-success btn-sm" id="my-btn-edit" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-edit"></i> Ubah</a>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="my-btn-delete" data-id="' . $row->id . '"><i class="fa fa-trash"></i> Hapus</a>
+                            </div>';
                 })
+                
                 ->rawColumns(['meja', 'action'])
                 ->make(true);
         }
@@ -97,5 +99,4 @@ class MejaController extends Controller
 
         return view('meja.printQR', compact('meja', 'qrCode'));
     }
-
 }

@@ -12,7 +12,7 @@ class Cashier extends Model
     protected $fillable = [
         'nama',
         'email',
-        'password',
+        'alamat',
         'nomer',
     ];
 }

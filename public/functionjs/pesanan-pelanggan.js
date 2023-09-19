@@ -10,7 +10,7 @@ $(document).ready(function () {
 function getData() {
     $("#data-table").DataTable({
         paging: true,
-        searching: false,
+        searching: true,
         info: true,
         ordering: true,
         bDestroy: true,

@@ -40,8 +40,8 @@
                               <thead>
                               <tr>
                                   <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >No</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Meja</th>
-                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Keterangan</th>
+                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Meja</th>
+                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Opsi</th>
                               </tr>
                               </thead>
                           </table>
@@ -50,9 +50,9 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
-</div>
-</section>
+  </section>
 
 <!-- pop up tambah meja -->
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">

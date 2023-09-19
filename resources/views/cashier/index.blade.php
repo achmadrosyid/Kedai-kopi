@@ -37,14 +37,14 @@
                             <div class="col-sm-12">
                           <table id="data-table" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                               <thead>
-                              <tr>
+                                <tr>
                                   <th class="text-center sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 5%">No</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Nama Kasir</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Email</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Password</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >No HP</th>
-                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Keterangan</th>
-                              </tr>
+                                  <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nama Kasir</th>
+                                  <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Email</th>
+                                  <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Alamat</th>
+                                  <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">No HP</th>
+                                  <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 20%">Opsi</th>
+                              </tr>                              
                               </thead>
                           </table>
                         </div>
@@ -75,8 +75,8 @@
               <input type="nama" class="form-control" id="nama" placeholder="Input username">
               <label for="input-email">Email</label>
               <input type="email" class="form-control" id="email" placeholder="Input email">
-              <label for="input-password">password</label>
-              <input type="password" class="form-control" id="password" placeholder="Input password">
+              <label for="input-alamat">Alamat</label>
+              <input type="text" class="form-control" id="alamat" placeholder="Input alamat">
               <label for="input nomer">No. Hp</label>
               <input type="nomer" class="form-control" id="nomer" placeholder="Input Nomer">
             </div>
@@ -109,8 +109,8 @@
                 <input type="nama" class="form-control" id="namaEdit" placeholder="Input username">
                 <label for="input-email">Email</label>
                 <input type="email" class="form-control" id="emailEdit" placeholder="Input email">
-                <label for="input-password">password</label>
-                <input type="password" class="form-control" id="passwordEdit" placeholder="Input password">
+                <label for="input-alamat">Alamat</label>
+                <input type="text" class="form-control" id="alamatEdit" placeholder="Input alamat">
                 <label for="input nomer">No. Hp</label>
                 <input type="nomer" class="form-control" id="nomerEdit" placeholder="Input Nomer">
               </div>

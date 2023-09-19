@@ -7,7 +7,7 @@ $(document).ready(function () {
 function getData() {
     $('#data-table').DataTable({
         paging: true,
-        searching: false,
+        searching: true,
         info: true,
         ordering: true,
         bDestroy: true,
@@ -29,7 +29,7 @@ function getData() {
             {data: 'description'},
             {data: 'status'},
             {data: 'harga'},
-            {data: 'action', width: "20%"}
+            {data: 'action', width: "15%"}
         ],
     });
 }

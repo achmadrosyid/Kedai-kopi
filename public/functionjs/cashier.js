@@ -25,7 +25,7 @@ function getData() {
             { data: "no" },
             { data: "nama" },
             { data: "email" },
-            { data: "password" },
+            { data: "alamat" },
             { data: "nomer" },
             { data: "action", width: "20%" },
         ],
@@ -49,7 +49,7 @@ $("#simpan").click(function (e) {
     let id = $("#id").val();
     let nama = $("#nama").val();
     let email = $("#email").val();
-    let password = $("#password").val();
+    let alamat = $("#alamat").val();
     let nomer = $("#nomer").val();
 
     $.ajax({
@@ -59,7 +59,7 @@ $("#simpan").click(function (e) {
             id: id,
             nama: nama,
             email: email,
-            password: password,
+            alamat: alamat,
             nomer: nomer,
         },
         success: function (data) {
@@ -92,7 +92,7 @@ $(document.body).on("click", "#my-btn-edit", function (e) {
             $("#id").val(data.data.id);
             $("#namaEdit").val(data.data.nama);
             $("#emailEdit").val(data.data.email);
-            $("#passwordEdit").val(data.data.password);
+            $("#alamatEdit").val(data.data.alamat);
             $("#nomerEdit").val(data.data.nomer);
             $("#modalEdit").modal("show");
         },
@@ -110,7 +110,7 @@ $("#editSimpan").click(function (e) {
     let id = $("#id").val();
     let nama = $("#namaEdit").val();
     let email = $("#emailEdit").val();
-    let password = $("#passwordEdit").val();
+    let alamat = $("#alamatEdit").val();
     let nomer = $("#nomerEdit").val();
 
     $.ajax({
@@ -120,7 +120,7 @@ $("#editSimpan").click(function (e) {
             id: id,
             nama: nama,
             email: email,
-            password: password,
+            alamat: alamat,
             nomer: nomer,
         },
         success: function (data) {
