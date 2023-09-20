@@ -32,9 +32,9 @@ function getData() {
 function filter() {
     const tglAwal = $('#tanggalAwal').val();
     const tglAkhir = $('#tanggalAkhir').val();
-    if(tglAwal=='' || tglAkhir==''){
+    if (tglAwal == '' || tglAkhir == '') {
         toastr.error('<strong><li>' + 'Harap isi Tanggal Awal Dan Tanggal Akhir' + '</li></strong>');
-    }else{
+    } else {
         $('#data-table').DataTable({
             paging: true,
             searching: false,
@@ -65,3 +65,8 @@ function filter() {
     }
 
 }
+$(document.body).on("click", "#cetak", function (e) {
+    const tglAwal = $('#tanggalAwal').val();
+    const tglAkhir = $('#tanggalAkhir').val();
+    window.open('/laporan-penjualan/export/' + tglAwal + '/' + tglAkhir)
+})

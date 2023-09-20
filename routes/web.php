@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('layouts.master');
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-    Route::get('/getSalesPerMonth',[HomeController::class,'getSalesPerMont']);
+    Route::get('/getSalesPerMonth', [HomeController::class, 'getSalesPerMont']);
     Route::group(['prefix' => 'product'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('product.index');
         Route::post('/store', [ProductController::class, 'store'])->name('product.store');
@@ -52,12 +52,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/getDetil/{id}', [CustomerOrderController::class, 'getDetilOrder'])->name('pesanan-pelanggan.getDetil');
         Route::post('/purchase', [CustomerOrderController::class, 'purchase'])->name('pesanan-pelanggan.purchase');
         Route::post('/deliverOrder', [CustomerOrderController::class, 'deliverOrder'])->name('pesanan-pelanggan.deliverOrder');
-        Route::get('/print/{id}',[CustomerOrderController::class,'print']);
+        Route::get('/print/{id}', [CustomerOrderController::class, 'print']);
     });
 
     Route::group(['prefix' => 'laporan-penjualan'], function () {
         Route::get('/', [LaporanPenjualanController::class, 'index'])->name('laporan-penjualan.index');
-        Route::get('/search',[LaporanPenjualanController::class,'search'])->name('laporan-penjualan.search');
+        Route::get('/search', [LaporanPenjualanController::class, 'search'])->name('laporan-penjualan.search');
+        Route::get('/export/{tglAwal?}/{tglAkhir?}', [LaporanPenjualanController::class, 'export']);
     });
     Route::group(['prefix' => 'cashier'], function () {
         Route::get('/', [CashierController::class, 'index'])->name('cashier.index');
