@@ -163,3 +163,8 @@ $(document.body).on("click", "#antar", function (e) {
         }
     });
 })
+
+$(document.body).on("click", "#print", function (e) {
+    let id = $(this).attr("data-id");
+    window.open('/pesanan-pelanggan/print/'+id)
+})

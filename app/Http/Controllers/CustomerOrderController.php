@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\OrderDetil;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use PDF;
 
 class CustomerOrderController extends Controller
 {
@@ -28,7 +30,7 @@ class CustomerOrderController extends Controller
             ->groupBy('order.id')
             ->orderBY('status_dibayar', 'DESC')
             ->orderBy('status_pesanan')
-             ->where('tanggal',$dateNow)
+            // ->where('tanggal', $dateNow)
             ->get();
         // dd($data);
         if ($request->ajax()) {
@@ -56,6 +58,7 @@ class CustomerOrderController extends Controller
                 ->addColumn('action', function ($row) {
                     return
                         ' <a href="javascript:void(0)"  class="btn btn-success btn-sm"  id="detail" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-eye"></i> Detail Pesanan</a>
+                        <a href="javascript:void(0)"  class="btn btn-primary btn-sm"  id="print" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-print"></i></a>
                         ';
                 })
                 ->rawColumns(['id', 'nama', 'meja', 'status_pesanan', 'status_pembayaran', 'action'])
@@ -132,5 +135,39 @@ class CustomerOrderController extends Controller
             return response()->json(['success' => 1]);
         }
         return response()->json(['success' => 0]);
+    }
+
+    public function print($id)
+    {
+
+        $transaction = Order::query()
+            ->where('id', $id)
+            ->select(
+                'total',
+                'nama_pelanggan',
+                'diskon',
+                'id_meja'
+            )
+            ->first();
+        $transaction->total = number_format($transaction->total, 0, '.', ',');
+        $transaction->diskon = number_format($transaction->diskon, 0, '.', ',');
+        $order = OrderDetil::query()
+            ->leftJoin('product as p', 'p.id', 'order_detil.id_product')
+            ->select(
+                'p.nama',
+                'p.harga',
+                'order_detil.jumlah'
+            )
+            ->where('order_detil.id_order', $id)
+            ->get();
+
+        foreach ($order as $data) {
+            $data->total = number_format($data->harga * $data->jumlah, 0, '.', ',');
+            $data->harga = number_format($data->harga, 0, '.', ',');
+        }
+
+        $pdf = PDF::loadView('nota', compact('transaction', 'order'));
+
+        return $pdf->stream('nota-pembelian.pdf', ['Attachment' => 0]);
     }
 }

@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/getDetil/{id}', [CustomerOrderController::class, 'getDetilOrder'])->name('pesanan-pelanggan.getDetil');
         Route::post('/purchase', [CustomerOrderController::class, 'purchase'])->name('pesanan-pelanggan.purchase');
         Route::post('/deliverOrder', [CustomerOrderController::class, 'deliverOrder'])->name('pesanan-pelanggan.deliverOrder');
+        Route::get('/print/{id}',[CustomerOrderController::class,'print']);
     });
 
     Route::group(['prefix' => 'laporan-penjualan'], function () {
