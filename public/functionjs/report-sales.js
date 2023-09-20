@@ -69,4 +69,5 @@ $(document.body).on("click", "#cetak", function (e) {
     const tglAwal = $('#tanggalAwal').val();
     const tglAkhir = $('#tanggalAkhir').val();
     window.open('/laporan-penjualan/export/' + tglAwal + '/' + tglAkhir)
+
 })

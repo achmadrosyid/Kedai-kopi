@@ -25,13 +25,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="input-product">Tanggal Awal</label>
-                                        <input type="date" class="form-control" id="tanggalAwal" placeholder="Input">
+                                        <input type="date" class="form-control" id="tanggalAwal" placeholder="Input" value="{{$firstDayOfMonthFormatted}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="input-product">Tanggal Akhir</label>
-                                        <input type="date" class="form-control" id="tanggalAkhir" placeholder="Input">
+                                        <input type="date" class="form-control" id="tanggalAkhir" placeholder="Input" value="{{$lastDayOfMonthFormatted}}">
                                     </div>
                                 </div>
                             </div>
