@@ -40,16 +40,22 @@
                       @endif
                   @endif
                   <!-- Product -->
-                  <li class="nav-item">
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
+                    <li class="nav-item">
                       <a href="{{ route('product.index') }}"
                           class="{{ request()->is('product') ? 'nav-link active' : 'nav-link' }}">
-                          <i class="nav-icon fas fa-weight-hanging"></i>
+                          <i class="nav-icon fa fa-coffee" aria-hidden="true"></i>
                           <p>
                               Data Produk
                           </p>
                       </a>
-                  </li>
+                    </li>
+                    @endif
+                    @endif
                   <!-- Category -->
+                  @if (Auth::check())
+                     @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('category.index') }}"
                           class="{{ request()->is('category') ? 'nav-link active' : 'nav-link' }}">
@@ -59,7 +65,11 @@
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
                   <!-- Pesanan Pelanggan -->
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('pesanan-pelanggan.index') }}"
                           class="{{ request()->is('pesanan-pelanggan') ? 'nav-link active' : 'nav-link' }}">
@@ -69,17 +79,25 @@
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
                   <!-- Laporan Penjualan -->
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('laporan-penjualan.index') }}"
                           class="{{ request()->is('laporan-penjualan') ? 'nav-link active' : 'nav-link' }}">
-                          <i class="nav-icon fas fa-money-bill-wave-alt"></i>
+                          <i class="nav-icon fa fa-book" aria-hidden="true"></i>
                           <p>
                               Laporan Penjualan
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
                   <!-- Cashier -->
+                  @if (Auth::check())
+                     @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('cashier.index') }}"
                           class="{{ request()->is('cashier') ? 'nav-link active' : 'nav-link' }}">
@@ -89,27 +107,35 @@
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
                   <!-- Meja -->
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('meja.index') }}"
                           class="{{ request()->is('meja') ? 'nav-link active' : 'nav-link' }}">
-                          <i class="nav-icon fas fa-shapes"></i>
+                          <i class="nav-icon fa fa-table" aria-hidden="true"></i>
                           <p>
                               Data Meja
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
                   <!-- order -->
                   <li class="nav-item">
                       <a href="{{ route('order.index') }}"
                           class="{{ request()->is('order') ? 'nav-link active' : 'nav-link' }}">
-                          <i class="nav-icon fas fa-home"></i>
+                          <i class="nav-icon fa fa-shopping-cart" aria-hidden="true"></i>
                           <p>
                               Pesanan
                           </p>
                       </a>
                   </li>
                   <!-- order -->
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('user.index') }}"
                           class="{{ request()->is('user') ? 'nav-link active' : 'nav-link' }}">
@@ -119,6 +145,10 @@
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @endif
+                  @if (Auth::check())
+                    @if (Auth::user()->roles == 'admin' || Auth::user()->roles == 'cashier' || Auth::user()->roles == 'owner')
                   <li class="nav-item">
                       <a href="{{ route('logout') }}" class="nav-link"
                           onclick="event.preventDefault();
@@ -130,6 +160,8 @@
                           @csrf
                       </form>
                   </li>
+                  @endif
+                  @endif
               </ul>
           </nav>
       </div>
