@@ -20,9 +20,10 @@ class CustomerOrderController extends Controller
         $dateNow = Carbon::now();
         $dateNow = $dateNow->toDateString();
         $data = Order::query()
+            ->leftJoin('meja as m','m.id','order.id_meja')
             ->select(
                 'nama_pelanggan',
-                'id_meja as meja',
+                'm.meja as meja',
                 'order.id',
                 'status_pesanan',
                 'status_dibayar'

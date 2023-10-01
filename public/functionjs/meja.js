@@ -155,7 +155,7 @@ $('#printQr').on("click", () => {
     const idTable = $('#printQr').attr('data-id');
     var qrCodeBaseUri = 'https://api.qrserver.com/v1/create-qr-code/?',
     params = {
-        data: 'kedai-kopi.sdn001be.com/order/' + idTable, // Menggunakan idTable yang sudah didefinisikan
+        data: 'kafe-super.sdn001be.com/order/' + idTable, // Menggunakan idTable yang sudah didefinisikan
         size: '400x400',
         margin: 20,
         bgcolor: '#FF0000',
