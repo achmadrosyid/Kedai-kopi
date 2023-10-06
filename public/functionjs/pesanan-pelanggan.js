@@ -97,10 +97,11 @@ $(document.body).on("click", "#bayar", function (e) {
     });
     $.ajax({
         url: '/pesanan-pelanggan/purchase/',
-        type: 'POST',
+        type: "POST",
         data: {
             totalPayment: totalPayment,
             idOrder: idOrder,
+            _method: "POST"
         },
         success: function (data) {
             if (data.errors) {
