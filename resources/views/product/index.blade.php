@@ -50,9 +50,10 @@
                                                 <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Deskripsi</th>
                                                 <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Status</th>
                                                 <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Harga</th>
+                                                <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Diskon</th>
                                                 <th class="text-center sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 30%">Opsi</th>
                                             </tr>
-                                        </thead>                                        
+                                        </thead>
                                     </table>
                                 </div>
                             </div>
@@ -109,6 +110,8 @@
                             </div>
                             <label for="input-harga">Harga</label>
                             <input type="harga" class="form-control" id="harga" placeholder="Input harga">
+                            <label for="">Diskon</label>
+                            <input type="number" class="form-control" id="diskon" placeholder="Input Diskon">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -157,6 +160,8 @@
                             </div>
                             <label for="input-harga">Harga</label>
                             <input type="harga" class="form-control" id="hargaEdit" placeholder="Input harga">
+                            <label for="">Diskon</label>
+                            <input type="number" class="form-control" id="diskonEdit" placeholder="Input Diskon">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

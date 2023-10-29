@@ -22,14 +22,15 @@ function getData() {
             }
         },
         columns: [
-            {data: 'no'},
-            {data: 'img'},
-            {data: 'category'},
-            {data: 'nama'},
-            {data: 'description'},
-            {data: 'status'},
-            {data: 'harga'},
-            {data: 'action', width: "15%"}
+            { data: 'no' },
+            { data: 'img' },
+            { data: 'category' },
+            { data: 'nama' },
+            { data: 'description' },
+            { data: 'status' },
+            { data: 'harga' },
+            { data: 'diskon' },
+            { data: 'action', width: "15%" }
         ],
     });
 }
@@ -74,18 +75,20 @@ $('#simpan').click(function (e) {
     let description = $('#description').val();
     let status = $('#tipe_status').val();
     let harga = $('#harga').val();
+    let diskon = $('#diskon').val();
 
     $.ajax({
         url: '/product/store',
         method: 'POST',
         data: {
             id: id,
-            img : img,
+            img: img,
             id_category: id_category,
             nama: nama,
             description: description,
             status: status,
             harga: harga,
+            diskon: diskon,
         },
         success: function (data) {
             if (data.errors) {
@@ -93,12 +96,12 @@ $('#simpan').click(function (e) {
                     toastr.error('<strong><li>' + value + '</li></strong>');
                 });
             } else {
-                if(data.success === 1){
+                if (data.success === 1) {
                     getData();
                     $('#modalCreate').modal('hide');
                     $('#form').trigger("reset");
                     toastr.success('Data Berhasil Di Simpan');
-                }else{
+                } else {
                     toastr.warning('Data Gagal Disimpan')
                 }
 
@@ -121,6 +124,7 @@ $(document.body).on("click", "#my-btn-edit", function (e) {
             $("#descriptionEdit").val(data.data.description);
             $("#tipe_statusEdit").val(data.data.status);
             $("#hargaEdit").val(data.data.harga);
+            $("#diskonEdit").val(data.data.diskon);
             $("#modalEdit").modal("show");
         },
     });
@@ -140,6 +144,7 @@ $("#editSimpan").click(function (e) {
     let description = $('#descriptionEdit').val();
     let status = $('#tipe_statusEdit').val();
     let harga = $('#hargaEdit').val();
+    let diskon = $('#diskonEdit').val();
 
     $.ajax({
         url: "/product/update",
@@ -151,6 +156,7 @@ $("#editSimpan").click(function (e) {
             description: description,
             status: status,
             harga: harga,
+            diskon: diskon,
         },
         success: function (data) {
             if (data.errors) {
@@ -160,7 +166,7 @@ $("#editSimpan").click(function (e) {
             } else {
                 if (data.success === 1) {
                     getData();
-                    $("#editSimpan").modal("hide");
+                    $("#modalEdit").modal("hide");
                     toastr.success("Data Berhasil Di Simpan");
                 } else {
                     toastr.warning("Data Gagal Disimpan");
