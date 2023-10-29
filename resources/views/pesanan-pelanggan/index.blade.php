@@ -75,7 +75,6 @@
                                         <th style="width:10%">No</th>
                                         <th style="width: 25%;">Produk</th>
                                         <th style="width: 20%;">Jumlah</th>
-                                        <th style="width: 15%;">Diskon</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableOrder">

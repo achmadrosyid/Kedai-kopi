@@ -3,7 +3,6 @@ var token = $("#token").val();
 $(document).ready(function () {
     getData();
     $('#antar').hide();
-    $("input").prop('disabled', false);
     // setInterval(getData, 3000);
 });
 
@@ -53,7 +52,6 @@ $(document.body).on("click", "#detail", function (e) {
                 html += "<td>" + (i + 1) + "</td>";
                 html += "<td>" + nameProduct + "</td>";
                 html += "<td>" + data['order'][i]['jumlah'] + "</td>";
-                html += "<td>" + "<input type='number' class='form-control' id='diskon'>" + "</td>";
                 html += "</tr>";
             }
             document.getElementById('tableOrder').innerHTML = "";
@@ -61,11 +59,9 @@ $(document.body).on("click", "#detail", function (e) {
             if (data['statusBayar'] == 1) {
                 $('#bayar').hide();
                 $('#antar').show();
-                $("input").prop('disabled', true);
             } else {
                 $('#bayar').show();
                 $('#antar').hide();
-                $("input").prop('disabled', false);
             }
             if (data['statusPesanan'] == 1) {
                 $('#antar').hide();
@@ -75,18 +71,7 @@ $(document.body).on("click", "#detail", function (e) {
     });
 
 });
-$(document).on("change", "#diskon", function (e) {
-    const discount = $(this).val();
-    countDiscount(discount)
 
-});
-
-function countDiscount(discount) {
-    const newTotal = parseInt(localStorage.getItem('totalOrder')) - discount;
-    localStorage.setItem('totalOrder', newTotal);
-    var formattedNumber = (newTotal / 1000).toFixed(3);
-    $('#totalHarga').text('Rp.' + formattedNumber);
-}
 $(document.body).on("click", "#bayar", function (e) {
     e.preventDefault();
     const totalPayment = localStorage.getItem('totalOrder');

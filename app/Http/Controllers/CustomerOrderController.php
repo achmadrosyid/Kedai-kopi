@@ -110,17 +110,10 @@ class CustomerOrderController extends Controller
     }
     public function purchase(Request $request)
     {
-        $getTotalPrice = Order::query()
-            ->where('id', $request->idOrder)
-            ->select('jumlah_harga')
-            ->first();
-        $diskon = $getTotalPrice->jumlah_harga - $request->totalPayment;
         $idCashier = Auth::user()->id_cashier;
         $purchase = Order::query()
             ->where('id', $request->idOrder)
             ->update([
-                'diskon' => $diskon,
-                'total' => $request->totalPayment,
                 'status_dibayar' => 1,
                 'id_cashier' => $idCashier
             ]);

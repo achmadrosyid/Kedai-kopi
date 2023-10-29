@@ -127,8 +127,8 @@ class OrderController extends Controller
         $numberOrder = 'ORD' . $dateFinal . str_pad($countOrderToday+1, 4, '0', STR_PAD_LEFT);
         $total = intval(str_replace(",", "", $request->total));
         $diskon = intval(str_replace(",", "", $request->diskon));
-        $jumlah = intval(str_replace(",", "", $request->total));
-        $total = $total+$diskon;
+        $jumlah = 0;
+        $jumlah = $total+$diskon;
         $order = Order::create([
             'no_order' => $numberOrder,
             'tanggal' => $dateNow,
