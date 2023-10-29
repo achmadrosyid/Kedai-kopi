@@ -33,6 +33,8 @@
                                                     aria-label="CSS grade: activate to sort column ascending">Nama Pelanggan
                                                 </th>
                                                 <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                    aria-label="CSS grade: activate to sort column ascending">No Order</th>
+                                                <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Meja</th>
                                                 <th class="sorting text-center" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                                     aria-label="CSS grade: activate to sort column ascending">Status Pesanan
@@ -44,7 +46,7 @@
                                                     aria-label="CSS grade: activate to sort column ascending" style="width: 10%">Opsi</th>
                                             </tr>
                                         </thead>
-                                        
+
                                     </table>
                                 </div>
                             </div>

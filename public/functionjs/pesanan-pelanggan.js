@@ -27,6 +27,7 @@ function getData() {
         columns: [
             { data: 'no', width: "5%" },
             { data: "nama" },
+            { data: "no_order" },
             { data: "meja" },
             { data: "status_pesanan" },
             { data: "status_pembayaran" },
@@ -167,5 +168,5 @@ $(document.body).on("click", "#antar", function (e) {
 
 $(document.body).on("click", "#print", function (e) {
     let id = $(this).attr("data-id");
-    window.open('/pesanan-pelanggan/print/'+id)
+    window.open('/pesanan-pelanggan/print/' + id)
 })

@@ -20,13 +20,14 @@ class CustomerOrderController extends Controller
         $dateNow = Carbon::now();
         $dateNow = $dateNow->toDateString();
         $data = Order::query()
-            ->leftJoin('meja as m','m.id','order.id_meja')
+            ->leftJoin('meja as m', 'm.id', 'order.id_meja')
             ->select(
                 'nama_pelanggan',
                 'm.meja as meja',
                 'order.id',
                 'status_pesanan',
-                'status_dibayar'
+                'status_dibayar',
+                'no_order'
             )
             ->groupBy('order.id')
             ->orderBY('status_dibayar', 'DESC')
@@ -38,6 +39,9 @@ class CustomerOrderController extends Controller
             return DataTables::of($data)
                 ->addColumn('nama', function ($row) {
                     return $row->nama_pelanggan;
+                })
+                ->addColumn('no_order', function ($row) {
+                    return $row->no_order;
                 })
                 ->addColumn('meja', function ($row) {
                     return $row->meja;
@@ -62,7 +66,7 @@ class CustomerOrderController extends Controller
                         <a href="javascript:void(0)"  class="btn btn-primary btn-sm"  id="print" data-id="' . $row->id . '" data-toggle="tooltip" data-placement="top" title="Edit this record"><i class="fa fa-print"></i></a>
                         ';
                 })
-                ->rawColumns(['id', 'nama', 'meja', 'status_pesanan', 'status_pembayaran', 'action'])
+                ->rawColumns(['id', 'nama','no_order', 'meja', 'status_pesanan', 'status_pembayaran', 'action'])
                 ->make(true);
         }
         return view('pesanan-pelanggan.index');
