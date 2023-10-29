@@ -40,6 +40,7 @@
                                              style="width: 12rem;height:12rem">
                                         <div class="card-body">
                                             <h5 class="card-title">Rp. {{ $row->harga }}</h5>
+                                            <p class="card-text">Diskon Rp. {{$row->diskon}}</p>
                                             <p class="card-text">{{ $row->nama }}</p>
                                             <a href="#" class="btn btn-primary" style="width: 6rem;" id="addToCart" data-id="{{$row->id}}" data-name="{{$row->nama}}">Tambah</a>
 

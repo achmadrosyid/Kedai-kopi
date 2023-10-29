@@ -18,6 +18,7 @@ function getData() {
                 let idProduct = element['id'];
                 let imgSrc = '/storage/' + element['img'];
                 let price = element['harga'];
+                let diskon = element['diskon']
                 let name = element['nama']
 
                 html += "<div class='col-lg-3 col-sm-6 col-xs-6'>";
@@ -25,6 +26,7 @@ function getData() {
                 html += "<img class='card-img-top' src='" + imgSrc + "' style='width: 12rem; height: 12rem;'>";
                 html += "<div class='card-body'>"
                 html += "<h5 class='card-title'>" + 'Rp.' + price + "</h5>";
+                html += "<p class='card-text'>" + 'Diskon ' + 'Rp.' + diskon + "</p>"
                 html += "<p class='card-text'>" + name + "</p>"
                 html += "<a  class='btn btn-primary' style='width: 6rem;'  id='addToCart' data-id='" + idProduct + "' data-name='" + name + "'>Tambah</a>"
                 html += "</div>";
@@ -93,6 +95,7 @@ $(document.body).on("click", "#keranjang", function (e) {
         success: function (data) {
             localStorage.setItem('cart', JSON.stringify(data['cart']));
             localStorage.setItem('total', data['total']);
+            localStorage.setItem('diskon', data['diskon']);
             $('#totalHarga').text('Rp.' + data['total']);
             let html = "";
             for (let i = 0; i < data['cart'].length; i++) {
@@ -207,6 +210,7 @@ function getDataUpdateCart() {
         success: function (data) {
             localStorage.setItem('cart', JSON.stringify(data['cart']));
             localStorage.setItem('total', data['total']);
+            localStorage.setItem('diskon', data['diskon']);
             $('#totalHarga').text('Rp.' + data['total']);
             let html = "";
             for (let i = 0; i < data['cart'].length; i++) {
@@ -242,7 +246,8 @@ $(document.body).on("click", "#bayar", function () {
             idMeja: localStorage['meja'],
             product: localStorage['cart'],
             name: name,
-            total: localStorage['total']
+            total: localStorage['total'],
+            diskon: localStorage['diskon'],
         },
         success: function (data) {
             if (data.errors) {

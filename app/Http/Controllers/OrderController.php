@@ -17,11 +17,12 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $data = Product::query()
-            ->select('id', 'nama', 'img', 'harga')
+            ->select('id', 'nama', 'img', 'harga', 'diskon')
             ->where('status', 1)
             ->get();
         foreach ($data as $product) {
             $product->harga = number_format($product->harga, 0, '.', ',');
+            $product->diskon = number_format($product->diskon, 0, '.', ',');
         }
         $category = Category::query()
             ->select('id', 'nama')
@@ -32,12 +33,13 @@ class OrderController extends Controller
     public function getProduct($category)
     {
         $data = Product::query()
-            ->select('id', 'nama', 'img', 'harga')
+            ->select('id', 'nama', 'img', 'harga', 'diskon')
             ->where('status', 1)
             ->where('id_category', $category)
             ->get();
         foreach ($data as $product) {
             $product->harga = number_format($product->harga, 0, '.', ',');
+            $product->diskon = number_format($product->diskon, 0, '.', ',');
         }
         return response()->json(['product' => $data]);
     }
@@ -64,22 +66,30 @@ class OrderController extends Controller
                 'p.id',
                 'p.nama',
                 'p.harga',
-                DB::raw('COUNT(cart.produk) as total_qty')
+                'p.diskon',
+                DB::raw('COUNT(cart.produk) as total_qty'),
             )
             ->groupBy('p.id', 'p.nama', 'p.harga')
             ->get();
 
         $totalKeseluruhanHarga = 0;
+        $diskon = 0;
 
         foreach ($data as $cart) {
-            $cart->total_harga = number_format($cart->total_qty * $cart->harga, 0, '.', ',');
-            $totalKeseluruhanHarga += $cart->total_qty * $cart->harga;
+            $cart->total_harga = number_format($cart->total_qty * ($cart->harga - $cart->diskon), 0, '.', ',');
+            $totalKeseluruhanHarga += $cart->total_qty * ($cart->harga - $cart->diskon);
+            $diskon += $cart->total_qty * $cart->diskon;
         }
 
         $totalKeseluruhanHargaFormatted = number_format($totalKeseluruhanHarga, 0, '.', ',');
+        $diskonFormatted = number_format($diskon, 0, '.', ',');
 
 
-        return response()->json(['cart' => $data, 'total' => $totalKeseluruhanHargaFormatted]);
+        return response()->json([
+            'cart' => $data,
+            'total' => $totalKeseluruhanHargaFormatted,
+            'diskon' => $diskonFormatted
+        ]);
     }
 
     public function removeItemFromCart(Request $request)
@@ -114,15 +124,18 @@ class OrderController extends Controller
         $countOrderToday = Order::query()
             ->where('tanggal', $dateFinal)
             ->count();
-        $numberOrder = 'ORD' . $dateFinal . str_pad($countOrderToday, 4, '0', STR_PAD_LEFT);
+        $numberOrder = 'ORD' . $dateFinal . str_pad($countOrderToday+1, 4, '0', STR_PAD_LEFT);
         $total = intval(str_replace(",", "", $request->total));
+        $diskon = intval(str_replace(",", "", $request->diskon));
+        $jumlah = intval(str_replace(",", "", $request->total));
+        $total = $total+$diskon;
         $order = Order::create([
             'no_order' => $numberOrder,
             'tanggal' => $dateNow,
             'id_meja' => $request->idMeja,
             'nama_pelanggan' => $request->name,
-            'jumlah_harga' => $total,
-            'diskon' => 0,
+            'jumlah_harga' => $jumlah,
+            'diskon' => $diskon,
             'total' => $total,
             'status_dibayar' => 0,
             'status_pesanan' => 0,
